@@ -1,0 +1,250 @@
+.datav-container {
+  .datav-header {
+    .datav-menu {
+      float: left;
+      width: 75%;
+    }
+    .datav-handler {
+      position: relative;
+      float: right;
+      height: 50px;
+      line-height: 50px;
+      width: 25%;
+      background-color: #545c64;
+    }
+  }
+  .datav-main {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .datav-panel {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      padding: 0;
+      width: 75%;
+      height: 100%;
+      overflow: auto;
+      &::-webkit-scrollbar-thumb {
+        background-color: #909090;
+      }
+      .datav-screen {
+        padding: 20px;
+        position: relative;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0) url("../assets/grid.png") repeat scroll 0 0 / 8px 8px;
+        .datav-container-layout {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, .8);
+          overflow: hidden;
+          .datav-item {
+            .adaptation {
+              &.choose {
+                border: 1px solid #DCDEE3;
+              }
+              .chart {
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+              }
+            }
+            .slice-wrapper {
+              width: 100%;
+              height: 100%;
+              &.choose {
+                border: 1px solid #DCDEE3;
+              }
+              .chart {
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+              }
+            }
+          }
+        }
+      }
+    }
+    .datav-option {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      padding: 0;
+      width: 25%;
+      height: 100%;
+      overflow: auto;
+      // border-left: 1px solid #c2c2c2;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .datav-option-panel {
+        .el-form {
+          padding: 20px;
+          .el-form-item__label {
+            padding: 0 10px 0 0 !important;
+          }
+        }
+      }
+      .datav-chart-option {
+        .el-tabs__header {
+          margin: 0;
+          .el-tabs__nav {
+            float: none;
+            .el-tabs__active-bar {
+              width: 50% !important;
+            }
+            .el-tabs__item {
+              width: 50%;
+              text-align: center;
+            }
+          }
+        }
+        .el-tabs__content {
+          .el-form {
+            padding-top: 10px;
+            .el-form-item__label {
+              padding: 0 10px 0 0 !important;
+            }
+          }
+          .el-collapse {
+            border-bottom: none !important;
+            .el-collapse-item {
+              .el-collapse-item__header {
+                padding-left: 15px;
+                background-color: #f2f2f2;
+                border-bottom: 1px solid #e2e2e2;
+              }
+              .el-collapse-item__content {
+                padding-bottom: 10px !important;
+                .el-form {
+                  padding-top: 10px;
+                  .el-form-item__label {
+                    padding: 0 10px 0 0 !important;
+                  }
+                }
+              }
+            }
+            .el-button--danger {
+              width: 60%;
+              margin-top: 10px;
+              margin-bottom: 10px;
+              margin-left: 20%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.vue-resizable-handle {
+  // 发布的时候添加此属性
+  // display: none;
+}
+
+.el-menu--horizontal {
+  border: none;
+  & > .el-submenu.is-active .el-submenu__title {
+    border: none;
+  }
+}
+
+.temp-app-container {
+  position: absolute;
+  left: 51px;
+  right: 0;
+  bottom: 0;
+  top: 95px;
+  .temp-list-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 25%;
+    .handle-container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 20;
+      padding: 0;
+    }
+    .temp-menu-list {
+      position: absolute;
+      top: 30px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0;
+      overflow: auto;
+      & ::-webkit-scrollbar {
+        display: none
+      }
+      .el-menu-item {
+        height: 210px;
+        cursor: pointer;
+        padding: 20px 0 !important;
+        list-style-type: none;
+        .temp-menu-item-thumbnails {
+          height: 120px;
+          width: 75%;
+          background: #cacddc;
+          margin: 0;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .temp-menu-item-w-h {
+          height: 20px;
+          margin: 0;
+          line-height: 20px;
+          font-size: 10px;
+          padding: 3px 0;
+          color: #526179;
+        }
+        .temp-menu-item-title {
+          width: 75%;
+          margin: 0;
+          height: 30px;
+          line-height: 30px;
+          font-size: 15px;
+          padding: 2px 0;
+          color: #526179;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+      }
+    }
+  }
+  .temp-view-container {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 73%;
+    overflow: auto;
+    .temp-view-big-img {
+      height: 100%;
+      width: 96%;
+      margin: 0 auto;
+      background: #fff;
+      position: relative;
+      img {
+        width: 100%;
+        height: 99%;
+      }
+    }
+  }
+}
+
+
+
+
+

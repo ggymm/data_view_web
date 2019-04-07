@@ -1,0 +1,42 @@
+/*暂时只在form表单中使用card样式*/
+.el-card__header {
+  padding: 10px;
+  background-color: #f5f6fa;
+  border-left: 5px solid #00a2ca;
+}
+
+.el-form-item__label {
+  padding: 0 40px 0 0;
+}
+
+.el-select {
+  width: 100%;
+}
+
+.el-input-group__append button.el-button {
+  margin: 0 -8px;
+  padding: 10px 0;
+}
+
+.el-input-group__append {
+  padding: 0 14px;
+}
+
+.step-form {
+  margin-top: 40px;
+  .step-form-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: 300;
+  }
+  .action + .el-button {
+    margin-left: 300px;
+  }
+  .el-button {
+    margin-top: 12px;
+  }
+}
+
