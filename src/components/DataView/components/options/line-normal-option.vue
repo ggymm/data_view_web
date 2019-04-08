@@ -238,9 +238,9 @@
               <el-select v-model="item.chartData.database">
                 <el-option
                   v-for="dataSource in dataSourceList"
-                  :key="dataSource.dataSourceId"
-                  :label="dataSource.dataSourceName"
-                  :value="dataSource.dataSourceId"/>
+                  :key="dataSource.DataSourceId"
+                  :label="dataSource.DataSourceName"
+                  :value="dataSource.DataSourceId"/>
               </el-select>
             </el-col>
           </el-form-item>
