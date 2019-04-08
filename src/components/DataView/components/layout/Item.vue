@@ -1,5 +1,5 @@
 <template>
-  <div ref="item" :style="position" class="datav-item">
+  <div ref="item" :style="position" class="data-view-item">
     <slot/>
     <span ref="handle" :class="resizableHandleClass"/>
   </div>
@@ -313,10 +313,10 @@ export default {
 </script>
 
 <style>
-  .datav-item {
+  .data-view-item {
     position: absolute;
   }
-  .datav-item > .vue-resizable-handle {
+  .data-view-item > .vue-resizable-handle {
     position: absolute;
     width: 20px;
     height: 20px;

@@ -1,9 +1,9 @@
 <template>
-  <div class="datav-container">
+  <div class="data-view-container">
     <v-loading v-show="loading"/>
-    <div class="datav-header">
+    <div class="data-view-header">
       <el-menu
-        class="datav-menu"
+        class="data-view-menu"
         mode="horizontal"
         background-color="#545c64"
         text-color="#fff"
@@ -181,7 +181,7 @@
           </el-menu-item>
         </el-submenu>
       </el-menu>
-      <div class="datav-handler">
+      <div class="data-view-handler">
         <el-button size="mini" type="primary" @click="handleSave">保存</el-button>
         <el-button
           v-if="Object.keys(chooseItem).length >= 0"
@@ -192,11 +192,11 @@
         <el-button size="mini" type="success">预览</el-button>
       </div>
     </div>
-    <div class="datav-main">
-      <div class="datav-panel">
+    <div class="data-view-main">
+      <div class="data-view-panel">
         <div
           :style="{width: panelConfig.panelWidth + 40 + 'px', height: panelConfig.panelHeight + 40 + 'px'}"
-          class="datav-screen">
+          class="data-view-screen">
           <layout
             :background-color="panelConfig.backgroundColor"
             :background-img="panelConfig.backgroundImg"
@@ -212,7 +212,7 @@
               :i="item.i"
               :panel-width="panelConfig.panelWidth"
               :panel-height="panelConfig.panelHeight"
-              drag-allow-from=".chart,.datav-item"
+              drag-allow-from=".chart,.data-view-item"
               drag-ignore-from=""
             >
               <Slice
@@ -223,8 +223,8 @@
           </layout>
         </div>
       </div>
-      <div class="datav-option">
-        <div v-show="Object.keys(chooseItem).length === 0" class="datav-option-panel">
+      <div class="data-view-option">
+        <div v-show="Object.keys(chooseItem).length === 0" class="data-view-option-panel">
           <el-form ref="form" :model="panelConfig" label-width="25%" size="mini">
             <el-form-item label="标题">
               <el-col :span="20">
@@ -442,7 +442,7 @@ export default {
           width: _this.panelConfig.panelWidth, // dom 原始宽度
           height: _this.panelConfig.panelHeight // dom 原始高度
         }
-        window.html2canvas(document.getElementById('datav-container-layout'),
+        window.html2canvas(document.getElementById('data-view-container-layout'),
           params).then(function(canvas) {
           _this.panelConfig.instanceViewImg = canvas.toDataURL('image/png')
           resolve()
@@ -487,7 +487,7 @@ export default {
             // 新建会返回ID
             // 访问编辑页面
             this.$router.push({
-              name: 'dataVEditInstance', params:
+              name: 'DataViewEditInstance', params:
                   {
                     instanceId: response.data,
                     isCopy: 0
@@ -535,7 +535,7 @@ export default {
         width: this.panelConfig.panelWidth, // dom 原始宽度
         height: this.panelConfig.panelHeight // dom 原始高度
       }
-      window.html2canvas(document.getElementById('datav-container-layout'),
+      window.html2canvas(document.getElementById('data-view-container-layout'),
         params).then(function(canvas) {
         this.instanceViewImg = canvas.toDataURL('image/png')
       })
@@ -544,7 +544,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .datav-menu .el-menu-item {
+  .data-view-menu .el-menu-item {
     height: 50px;
     line-height: 50px;
   }

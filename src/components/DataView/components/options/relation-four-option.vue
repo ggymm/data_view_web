@@ -1,5 +1,5 @@
 <template>
-  <div class="datav-chart-option">
+  <div class="data-view-chart-option">
     <el-tabs v-model="activeName">
       <el-tab-pane label="样式" name="style">
         <el-collapse accordion>

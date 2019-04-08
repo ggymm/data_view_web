@@ -1,12 +1,12 @@
 <template>
   <div
-    id="datav-container-layout"
+    id="data-view-container-layout"
     ref="item"
     :style="{background: backgroundColor,
              backgroundImage: backgroundImg,
              backgroundRepeat: 'no-repeat',
              backgroundSize: '100% 100%'}"
-    class="datav-container-layout">
+    class="data-view-container-layout">
     <slot/>
   </div>
 </template>
