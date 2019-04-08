@@ -30,6 +30,28 @@ export const dataViewRouterMap = [
         meta: { title: '创建数据源' }
       }
     ]
+  },
+  {
+    path: '/instance',
+    component: Layout,
+    redirect: '/instance/list',
+    name: '可视化实例',
+    meta: { title: '可视化实例', icon: 'data_view' },
+    children: [
+      {
+        name: 'DataViewInstanceList',
+        path: 'list',
+        component: () => import('@/views/data_view/instance/list'),
+        meta: { title: '可视化实例列表' }
+      },
+      {
+        path: 'create',
+        name: 'DataViewInstanceCreate',
+        hidden: true,
+        component: () => import('@/views/data_view/instance/create'),
+        meta: { title: '创建可视化' }
+      }
+    ]
   }
 ]
 

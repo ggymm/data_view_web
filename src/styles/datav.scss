@@ -1,10 +1,10 @@
-.datav-container {
-  .datav-header {
-    .datav-menu {
+.data-view-container {
+  .data-view-header {
+    .data-view-menu {
       float: left;
       width: 75%;
     }
-    .datav-handler {
+    .data-view-handler {
       position: relative;
       float: right;
       height: 50px;
@@ -13,13 +13,13 @@
       background-color: #545c64;
     }
   }
-  .datav-main {
+  .data-view-main {
     position: absolute;
     top: 50px;
     left: 0;
     right: 0;
     bottom: 0;
-    .datav-panel {
+    .data-view-panel {
       position: absolute;
       left: 0;
       bottom: 0;
@@ -31,18 +31,18 @@
       &::-webkit-scrollbar-thumb {
         background-color: #909090;
       }
-      .datav-screen {
+      .data-view-screen {
         padding: 20px;
         position: relative;
         overflow: auto;
         background: rgba(0, 0, 0, 0) url("../assets/grid.png") repeat scroll 0 0 / 8px 8px;
-        .datav-container-layout {
+        .data-view-container-layout {
           width: 100%;
           height: 100%;
           position: relative;
           box-shadow: 0 0 20px 0 rgba(0, 0, 0, .8);
           overflow: hidden;
-          .datav-item {
+          .data-view-item {
             .adaptation {
               &.choose {
                 border: 1px solid #DCDEE3;
@@ -69,7 +69,7 @@
         }
       }
     }
-    .datav-option {
+    .data-view-option {
       position: absolute;
       right: 0;
       bottom: 0;
@@ -82,7 +82,7 @@
       &::-webkit-scrollbar {
         display: none;
       }
-      .datav-option-panel {
+      .data-view-option-panel {
         .el-form {
           padding: 20px;
           .el-form-item__label {
@@ -90,7 +90,7 @@
           }
         }
       }
-      .datav-chart-option {
+      .data-view-chart-option {
         .el-tabs__header {
           margin: 0;
           .el-tabs__nav {
@@ -156,10 +156,10 @@
 
 .temp-app-container {
   position: absolute;
-  left: 51px;
+  left: 30px;
   right: 0;
   bottom: 0;
-  top: 95px;
+  top: 20px;
   .temp-list-container {
     position: absolute;
     left: 0;
@@ -191,7 +191,7 @@
         padding: 20px 0 !important;
         list-style-type: none;
         .temp-menu-item-thumbnails {
-          height: 120px;
+          height: 150px;
           width: 75%;
           background: #cacddc;
           margin: 0;
