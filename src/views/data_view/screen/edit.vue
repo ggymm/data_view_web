@@ -385,6 +385,7 @@ export default {
     // 获取对象
     const instanceId = this.$route.params.instanceId
     const isCopy = this.$route.params.isCopy
+    this.initPageStyle()
     if (instanceId) {
       this.instanceId = instanceId
       this.isCopy = parseInt(isCopy)
@@ -392,8 +393,14 @@ export default {
     }
   },
   methods: {
+    initPageStyle() {
+      const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+      const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+      this.panelConfig.panelWidth = width * 0.75 - 20 * 2
+      this.panelConfig.panelHeight = height - 50 - 20 * 2
+    },
     handleAdd(key) {
-      var newItem = OptionConfigMap[key]()
+      const newItem = OptionConfigMap[key]()
       newItem.slice_id = this.startIndex
       newItem.i = 'chart' + this.startIndex
       this.slices.push(newItem)
@@ -431,8 +438,8 @@ export default {
       })
     },
     handleSave() {
-      var _this = this
-      const generateScreenCapture = new Promise(function(resolve, reject) {
+      const _this = this
+      const generateScreenCapture = new Promise(function(resolve) {
         _this.$message({
           type: 'info',
           message: '正在生成缩略图！'

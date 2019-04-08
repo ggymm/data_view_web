@@ -3,7 +3,16 @@
     .data-view-menu {
       float: left;
       width: 75%;
+
+      .el-submenu {
+        .el-submenu__title {
+          height: 50px;
+          line-height: 50px;
+          font-size: 13px;
+        }
+      }
     }
+
     .data-view-handler {
       position: relative;
       float: right;
@@ -13,12 +22,14 @@
       background-color: #545c64;
     }
   }
+
   .data-view-main {
     position: absolute;
     top: 50px;
     left: 0;
     right: 0;
     bottom: 0;
+
     .data-view-panel {
       position: absolute;
       left: 0;
@@ -28,37 +39,45 @@
       width: 75%;
       height: 100%;
       overflow: auto;
+
       &::-webkit-scrollbar-thumb {
         background-color: #909090;
       }
+
       .data-view-screen {
         padding: 20px;
         position: relative;
         overflow: auto;
         background: rgba(0, 0, 0, 0) url("../assets/grid.png") repeat scroll 0 0 / 8px 8px;
+
         .data-view-container-layout {
           width: 100%;
           height: 100%;
           position: relative;
           box-shadow: 0 0 20px 0 rgba(0, 0, 0, .8);
           overflow: hidden;
+
           .data-view-item {
             .adaptation {
               &.choose {
                 border: 1px solid #DCDEE3;
               }
+
               .chart {
                 width: 100%;
                 height: 100%;
                 margin: 0 auto;
               }
             }
+
             .slice-wrapper {
               width: 100%;
               height: 100%;
+
               &.choose {
                 border: 1px solid #DCDEE3;
               }
+
               .chart {
                 width: 100%;
                 height: 100%;
@@ -69,6 +88,7 @@
         }
       }
     }
+
     .data-view-option {
       position: absolute;
       right: 0;
@@ -82,53 +102,67 @@
       &::-webkit-scrollbar {
         display: none;
       }
+
       .data-view-option-panel {
         .el-form {
           padding: 20px;
+
           .el-form-item__label {
             padding: 0 10px 0 0 !important;
           }
         }
       }
+
       .data-view-chart-option {
         .el-tabs__header {
           margin: 0;
+
           .el-tabs__nav {
             float: none;
+
             .el-tabs__active-bar {
               width: 50% !important;
             }
+
             .el-tabs__item {
               width: 50%;
               text-align: center;
             }
           }
         }
+
         .el-tabs__content {
           .el-form {
             padding-top: 10px;
+
             .el-form-item__label {
               padding: 0 10px 0 0 !important;
             }
           }
+
           .el-collapse {
             border-bottom: none !important;
+
             .el-collapse-item {
               .el-collapse-item__header {
                 padding-left: 15px;
                 background-color: #f2f2f2;
                 border-bottom: 1px solid #e2e2e2;
               }
+
               .el-collapse-item__content {
                 padding-bottom: 10px !important;
+
                 .el-form {
                   padding-top: 10px;
+
                   .el-form-item__label {
                     padding: 0 10px 0 0 !important;
                   }
                 }
               }
             }
+
             .el-button--danger {
               width: 60%;
               margin-top: 10px;
@@ -149,6 +183,7 @@
 
 .el-menu--horizontal {
   border: none;
+
   & > .el-submenu.is-active .el-submenu__title {
     border: none;
   }
@@ -160,12 +195,14 @@
   right: 0;
   bottom: 0;
   top: 20px;
+
   .temp-list-container {
     position: absolute;
     left: 0;
     bottom: 0;
     top: 0;
     width: 25%;
+
     .handle-container {
       position: absolute;
       left: 0;
@@ -174,6 +211,7 @@
       z-index: 20;
       padding: 0;
     }
+
     .temp-menu-list {
       position: absolute;
       top: 30px;
@@ -182,24 +220,29 @@
       right: 0;
       padding: 0;
       overflow: auto;
+
       & ::-webkit-scrollbar {
         display: none
       }
+
       .el-menu-item {
         height: 210px;
         cursor: pointer;
         padding: 20px 0 !important;
         list-style-type: none;
+
         .temp-menu-item-thumbnails {
           height: 150px;
           width: 75%;
           background: #cacddc;
           margin: 0;
+
           img {
             width: 100%;
             height: 100%;
           }
         }
+
         .temp-menu-item-w-h {
           height: 20px;
           margin: 0;
@@ -208,6 +251,7 @@
           padding: 3px 0;
           color: #526179;
         }
+
         .temp-menu-item-title {
           width: 75%;
           margin: 0;
@@ -224,18 +268,21 @@
       }
     }
   }
+
   .temp-view-container {
     position: absolute;
     right: 0;
     height: 100%;
     width: 73%;
     overflow: auto;
+
     .temp-view-big-img {
       height: 100%;
       width: 96%;
       margin: 0 auto;
       background: #fff;
       position: relative;
+
       img {
         width: 100%;
         height: 99%;
