@@ -72,6 +72,12 @@ export default {
       this.$router.push({ name: 'DataViewInstanceList' })
     },
     handleCreate() {
+      if (this.chooseInstanceId === null) {
+        window.open('#/data_view/screen/create')
+      } else {
+        // 复制该模板，创建新的实例
+        window.open('#/data_view/screen/edit/' + this.chooseInstanceId + '/1')
+      }
     },
     handleChooseInstance(key, keyPath) {
       if (key === '0') {

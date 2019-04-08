@@ -20,6 +20,7 @@ export default {
       }
     },
     i: {
+      type: String,
       required: true
     }
   },

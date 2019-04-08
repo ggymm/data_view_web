@@ -3,8 +3,8 @@
     v-clickOutside="handleItemUnChoose"
     ref="container"
     :class="{'choose': item.choose === 'true',
-             'adaptation': this.item.chartType === 'progressBar',
-             'slice-wrapper': this.item.chartType !== 'progressBar'}"
+             'adaptation': item.chartType === 'progressBar',
+             'slice-wrapper': item.chartType !== 'progressBar'}"
     @click="handleItemChoose">
     <component
       :loading="loading"
@@ -48,7 +48,7 @@ import {
   PictureV
 } from '../charts'
 import ChartComponentMap from '../../config/chart-component-map'
-import { getChartData } from '@/api/datav/chart/chartData'
+import { getChartData } from '../../../../api/screen'
 
 const clickOutside = {
   // 初始化指令

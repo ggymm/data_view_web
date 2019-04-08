@@ -189,7 +189,7 @@ export default {
         this.$refs['dataViewDataSourceForm'].validate((valid) => {
           if (valid) {
             this.dataSource.DataSourcePort = parseInt(this.dataSource.DataSourcePort)
-            if (this.dataSource.dataSourceId) {
+            if (this.dataSource.DataSourceId) {
               updateDataSource(this.dataSource).then(() => {
                 this.$message({
                   type: 'success',

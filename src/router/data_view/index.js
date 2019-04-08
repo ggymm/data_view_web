@@ -1,4 +1,5 @@
 import Layout from '../../views/layout/Layout'
+import BlankLayout from '../../views/layout/Blank-Layout'
 
 // noinspection NpmUsedModulesInstalled
 export const dataViewRouterMap = [
@@ -36,13 +37,13 @@ export const dataViewRouterMap = [
     component: Layout,
     redirect: '/instance/list',
     name: '可视化实例',
-    meta: { title: '可视化实例', icon: 'data_view' },
+    meta: { icon: 'data_view' },
     children: [
       {
         name: 'DataViewInstanceList',
         path: 'list',
         component: () => import('@/views/data_view/instance/list'),
-        meta: { title: '可视化实例列表' }
+        meta: { title: '可视化实例' }
       },
       {
         path: 'create',
@@ -50,6 +51,24 @@ export const dataViewRouterMap = [
         hidden: true,
         component: () => import('@/views/data_view/instance/create'),
         meta: { title: '创建可视化' }
+      }
+    ]
+  },
+  {
+    path: '/screen',
+    name: '创建数据可视化',
+    component: BlankLayout,
+    hidden: true,
+    children: [
+      {
+        path: 'create',
+        name: 'DataViewCreateScreen',
+        component: () => import('@/views/data_view/screen/edit')
+      },
+      {
+        path: 'edit/:instanceId/:isCopy',
+        name: 'DataViewEditInstance',
+        component: () => import('@/views/data_view/screen/edit')
       }
     ]
   }

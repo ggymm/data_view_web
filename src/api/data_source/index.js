@@ -9,6 +9,14 @@ export function getDataSourcePage(params) {
   })
 }
 
+export function getDataSourceList(params) {
+  return request({
+    url: dataViewBaseUrl + 'data_source/list',
+    method: 'get',
+    params
+  })
+}
+
 export function getDataSource(params) {
   return request({
     url: dataViewBaseUrl + 'data_source/' + params,
@@ -25,7 +33,11 @@ export function saveDataSource(params) {
 }
 
 export function updateDataSource(params) {
-  return request.post(dataViewBaseUrl + 'dataSource/updateDataSource', params)
+  return request({
+    url: dataViewBaseUrl + 'data_source/' + params.DataSourceId,
+    method: 'put',
+    data: params
+  })
 }
 
 export function deleteDataSource(params) {

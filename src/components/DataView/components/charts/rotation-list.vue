@@ -8,21 +8,28 @@
         fontSize: option.column.fontSize + 'px'
       }"
       class="rotation-column">
-      <span v-for="(column, index) in columnList" :style="{width: columnWidthList[index]}">{{ column }}</span>
+      <span
+        v-for="(column, index) in columnList"
+        :key="index"
+        :style="{width: columnWidthList[index]}">{{ column }}</span>
     </div>
     <div
       :style="{ height: option.rowNum * option.data.height + 'px' }"
       class="rotation-container">
       <ul class="rotation-list">
         <li
-          v-for="data in dataList"
+          v-for="(data, index) in dataList"
+          :key="index"
           :style="{
             color: option.data.fontColor,
             height: option.data.height + 'px',
             lineHeight: option.data.height + 'px',
             fontSize: option.data.fontSize + 'px'
         }">
-          <span v-for="(dataItem, index) in data" :style="{width: columnWidthList[index]}">{{ dataItem }}</span>
+          <span
+            v-for="(dataItem, index) in data"
+            :key="index"
+            :style="{width: columnWidthList[index]}">{{ dataItem }}</span>
         </li>
       </ul>
     </div>
@@ -32,6 +39,7 @@
 <script>
 import { getRotationListConfig } from '../config/rotation-list-config'
 import $ from 'jquery'
+
 export default {
   name: 'RotationList',
   props: {
@@ -120,37 +128,42 @@ export default {
 </script>
 
 <style>
-.rotation-column{
-  padding: 0;
-  font-weight: bold;
-}
-.rotation-column span{
-  float: left;
-  text-align: center;
-}
-.rotation-container{
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.rotation-list{
-  position:absolute;
-  width:100%;
-  left:0;
-  top:0;
-  margin:0;
-  padding:0;
-}
-.rotation-list li {
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-.rotation-list li span {
-  display:inline-block;
-  text-align: center;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
+  .rotation-column {
+    padding: 0;
+    font-weight: bold;
+  }
+
+  .rotation-column span {
+    float: left;
+    text-align: center;
+  }
+
+  .rotation-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rotation-list {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .rotation-list li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .rotation-list li span {
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 </style>
