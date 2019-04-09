@@ -53,9 +53,8 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error)// for debug
     Message({
-      message: '后台服务出现问题，可能是没有启动',
+      message: error.response.data.msg,
       type: 'error',
       duration: 5 * 1000
     })

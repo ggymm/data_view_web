@@ -396,8 +396,8 @@ export default {
     initPageStyle() {
       const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
       const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-      this.panelConfig.panelWidth = width * 0.75 - 20 * 2
-      this.panelConfig.panelHeight = height - 50 - 20 * 2
+      this.panelConfig.panelWidth = width * 0.75 - 20 * 2 - 5
+      this.panelConfig.panelHeight = height - 50 - 20 * 2 - 5
     },
     handleAdd(key) {
       const newItem = OptionConfigMap[key]()

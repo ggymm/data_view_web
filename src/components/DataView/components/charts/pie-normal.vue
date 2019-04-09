@@ -26,9 +26,9 @@ export default {
       }
     },
     apiData: {
-      type: Object,
+      type: Array,
       default() {
-        return {}
+        return []
       }
     }
   },
@@ -53,12 +53,13 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      var legendData = []
-      for (var i = 0; i < this.apiData.length; i++) {
+      const legendData = []
+      for (let i = 0; i < this.apiData.length; i++) {
         legendData.push(this.apiData[i].name)
       }
       this.option.legend.data = legendData
       this.option.series[0].data = this.apiData
+      console.log(this.option)
     }
   }
 }

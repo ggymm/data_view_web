@@ -50,6 +50,7 @@ import {
 import ChartComponentMap from '../../config/chart-component-map'
 import { getChartData } from '../../../../api/screen'
 
+// noinspection JSUnusedGlobalSymbols,JSUnusedLocalSymbols
 const clickOutside = {
   // 初始化指令
   bind(el, binding, vnode) {
@@ -197,7 +198,7 @@ export default {
           if (this.checkDataKey(_chartDataConfig)) {
             _chartDataConfig.chartType = this.item.chartType
             getChartData(_chartDataConfig).then(response => {
-              this.chartData = JSON.parse(JSON.stringify(response.data))
+              this.chartData = JSON.parse(response.data)
               this.loading = false
             })
           }
@@ -238,10 +239,10 @@ export default {
       this.item.choose = 'false'
     },
     checkData(lastObject, newObject) {
-      var lastObjectKeys = Object.keys(lastObject)
-      var newObjectKeys = Object.keys(newObject)
+      const lastObjectKeys = Object.keys(lastObject)
+      const newObjectKeys = Object.keys(newObject)
       if (lastObjectKeys.length === newObjectKeys.length) {
-        for (var i = 0; i < lastObjectKeys.length; i++) {
+        for (let i = 0; i < lastObjectKeys.length; i++) {
           if (lastObject[lastObjectKeys[i]] !== newObject[lastObjectKeys[i]]) {
             return false
           }
@@ -252,8 +253,8 @@ export default {
       }
     },
     checkDataKey(object) {
-      var objectKeys = Object.keys(object)
-      for (var i = 0; i < objectKeys.length; i++) {
+      const objectKeys = Object.keys(object)
+      for (let i = 0; i < objectKeys.length; i++) {
         if (object[objectKeys[i]] === undefined ||
           object[objectKeys[i]] === null ||
           object[objectKeys[i]] === '') {

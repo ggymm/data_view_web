@@ -15,7 +15,7 @@ export function saveScreenInstanceParams(params) {
 
 export function getChartData(params) {
   return request({
-    url: dataViewBaseUrl + 'chartData/getData',
+    url: dataViewBaseUrl + 'chart_data',
     method: 'get',
     params
   })
