@@ -229,7 +229,7 @@ export default {
     handleTestConnect() {
       this.$refs['dataViewDataSourceForm'].validate((valid) => {
         if (valid) {
-		 this.dataSource.DataSourcePort = parseInt(this.dataSource.DataSourcePort)
+          this.dataSource.DataSourcePort = parseInt(this.dataSource.DataSourcePort)
           testConnection(this.dataSource).then(() => {
             this.$message({
               type: 'success',
