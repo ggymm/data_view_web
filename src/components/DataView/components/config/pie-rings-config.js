@@ -11,9 +11,9 @@ const PieRingsConfig = function() {
       dataSourceType: '',
       database: '',
       fileName: '',
-      sql: '',
-      x: '',
-      name: ''
+      sql: 'select name,value from pierings',
+      name: 'name',
+      value: 'value'
     },
     data: [],
     interval: 8000,

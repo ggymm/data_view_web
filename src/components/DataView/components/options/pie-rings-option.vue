@@ -34,7 +34,58 @@
           <el-button size="mini" type="danger" @click="handleDelete">删除图表</el-button>
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane label="数据" name="data"/>
+      <el-tab-pane label="数据" name="data">
+        <el-form ref="form" :model="item" label-width="35%" size="mini">
+          <el-form-item label="数据源类型">
+            <el-col :span="20">
+              <el-select v-model="item.chartData.dataSourceType">
+                <el-option
+                  v-for="dataSourceType in dataSourceTypeList"
+                  :key="dataSourceType.value"
+                  :label="dataSourceType.label"
+                  :value="dataSourceType.value"/>
+              </el-select>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="数据源">
+            <el-col :span="20">
+              <el-select v-model="item.chartData.database">
+                <el-option
+                  v-for="dataSource in dataSourceList"
+                  :key="dataSource.DataSourceId"
+                  :label="dataSource.DataSourceName"
+                  :value="dataSource.DataSourceId"/>
+              </el-select>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'CSV'" label="数据文件">
+            <el-col :span="20">
+              <el-select v-model="item.chartData.fileName">
+                <el-option
+                  v-for="fileName in fileNameList"
+                  :key="fileName.fileName"
+                  :label="fileName.fileName"
+                  :value="fileName.fileName"/>
+              </el-select>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="name">
+            <el-col :span="20">
+              <el-input v-model="item.chartData.name"/>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="value">
+            <el-col :span="20">
+              <el-input v-model="item.chartData.value"/>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">
+            <el-col :span="20">
+              <el-input v-model="item.chartData.sql" type="textarea"/>
+            </el-col>
+          </el-form-item>
+        </el-form>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -48,6 +99,12 @@ export default {
       default() {
         return {}
       }
+    },
+    dataSourceList: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   data() {
@@ -60,7 +117,21 @@ export default {
       isShowList: [
         { label: '显示', value: true },
         { label: '隐藏', value: false }
-      ]
+      ],
+      dataSourceTypeList: [
+        { label: '数据库数据源', value: 'DataBase' },
+        { label: 'CSV文件数据源', value: 'CSV' }
+      ],
+      positionList: [
+        { label: '居左', value: 'left' },
+        { label: '居中', value: 'center' },
+        { label: '居右', value: 'right' }
+      ],
+      orientList: [
+        { label: '纵向', value: 'vertical' },
+        { label: '横向', value: 'horizontal' }
+      ],
+      fileNameList: []
     }
   },
   methods: {
