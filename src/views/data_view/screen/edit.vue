@@ -305,7 +305,7 @@ import Item from '../../../components/DataView/components/layout/Item'
 import OptionConfigMap from '../../../components/DataView/config/option-config-map'
 import VLoading from '../../../components/Loading/LoadingModal'
 import { getDataSourceList } from '../../../api/data_source'
-import { getScreenInstanceParams, saveScreenInstanceParams } from '../../../api/screen'
+import { getScreenInstanceParams, saveScreenInstanceParams } from '../../../api/instance'
 
 export default {
   components: {

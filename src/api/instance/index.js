@@ -8,3 +8,19 @@ export function getInstancePage(params) {
     params
   })
 }
+
+export function getScreenInstanceParams(params) {
+  return request({
+    url: dataViewBaseUrl + 'screen_instance/' + params,
+    method: 'get'
+  })
+}
+
+export function saveScreenInstanceParams(params) {
+  return request({
+    url: dataViewBaseUrl + 'screen_instance',
+    method: 'post',
+    data: params
+  })
+}
+
