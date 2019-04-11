@@ -10,6 +10,7 @@ import HistogramComplex from './histogram-complex'
 import MapChina from './map-china'
 import PieNormal from './pie-normal'
 import PieRing from './pie-ring'
+import PieRings from './pie-rings'
 import Pie2D from './pie-2d'
 import PiePercent from './pie-percent'
 import RadarBasic from './radar-basic'
@@ -39,6 +40,7 @@ export {
   MapChina,
   PieNormal,
   PieRing,
+  PieRings,
   Pie2D,
   PiePercent,
   RadarBasic,
