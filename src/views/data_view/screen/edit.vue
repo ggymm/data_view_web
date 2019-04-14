@@ -305,7 +305,7 @@ import Item from '../../../components/DataView/components/layout/Item'
 import OptionConfigMap from '../../../components/DataView/config/option-config-map'
 import VLoading from '../../../components/Loading/LoadingModal'
 import { getDataSourceList } from '../../../api/data_source'
-import { getScreenInstanceParams, saveScreenInstanceParams } from '../../../api/instance'
+import { getScreenInstanceParams, saveScreenInstanceParams, updateScreenInstanceParams } from '../../../api/instance'
 
 export default {
   components: {
@@ -331,7 +331,8 @@ export default {
         backgroundColor: '#263546',
         backgroundImg: '',
         instanceViewImg: '',
-        instanceTheme: ''
+        instanceTheme: '',
+        instanceVersion: 1
       },
       backgroundImgList: [
         { 'label': '大数据运维背景图', 'value': 'url(static/大数据运维背景图.png)' }
@@ -469,24 +470,27 @@ export default {
           this.instanceId = null
         }
         const screenInstance = {
-          instanceId: this.instanceId,
-          instanceTitle: this.panelConfig.title,
-          instanceWidth: this.panelConfig.panelWidth,
-          instanceHeight: this.panelConfig.panelHeight,
-          instanceBackgroundColor: this.panelConfig.backgroundColor,
-          instanceBackgroundImg: this.panelConfig.backgroundImg,
-          instanceViewImg: this.panelConfig.instanceViewImg,
-          chartItems: items
+          InstanceId: this.instanceId,
+          InstanceTitle: this.panelConfig.title,
+          InstanceWidth: this.panelConfig.panelWidth,
+          InstanceHeight: this.panelConfig.panelHeight,
+          InstanceBackgroundColor: this.panelConfig.backgroundColor,
+          InstanceBackgroundImg: this.panelConfig.backgroundImg,
+          InstanceViewImg: this.panelConfig.instanceViewImg,
+          InstanceVersion: this.panelConfig.instanceVersion,
+          ChartItems: items
         }
-        saveScreenInstanceParams(screenInstance).then(response => {
-          if (this.instanceId) {
+        if (this.instanceId) {
+          updateScreenInstanceParams(screenInstance).then(response => {
             // 编辑
             this.$message({
               type: 'success',
               message: '更新成功！'
             })
             this.reload()
-          } else {
+          })
+        } else {
+          saveScreenInstanceParams(screenInstance).then(response => {
             this.$message({
               type: 'success',
               message: '保存成功！'
@@ -495,21 +499,20 @@ export default {
             // 访问编辑页面
             this.$router.push({
               name: 'DataViewEditInstance', params:
-                  {
-                    instanceId: response.data,
-                    isCopy: 0
-                  }
+                {
+                  instanceId: response.data,
+                  isCopy: 0
+                }
             })
             this.$router.go(0)
-          }
-        })
+          })
+        }
       }.bind(this))
     },
     getScreenInstanceParams(instanceId) {
       try {
-        const params = { thisId: instanceId }
-        getScreenInstanceParams(params).then(response => {
-          const items = JSON.parse(JSON.stringify(response.data.chartItems))
+        getScreenInstanceParams(instanceId).then(response => {
+          const items = JSON.parse(JSON.stringify(response.data.ChartItems))
           items.map((item) => {
             item.data = JSON.parse(item.data)
             item.chartData = JSON.parse(item.chartData)
@@ -517,13 +520,15 @@ export default {
             return item
           })
           const panelConfig = {
-            title: response.data.instanceTitle,
-            panelWidth: response.data.instanceWidth,
-            panelHeight: response.data.instanceHeight,
-            backgroundColor: response.data.instanceBackgroundColor,
-            backgroundImg: response.data.instanceBackgroundImg
+            title: response.data.InstanceTitle,
+            panelWidth: response.data.InstanceWidth,
+            panelHeight: response.data.InstanceHeight,
+            backgroundColor: response.data.InstanceBackgroundColor,
+            backgroundImg: response.data.InstanceBackgroundImg,
+            instanceVersion: response.data.InstanceVersion
           }
-          this.startIndex = response.data.startIndex
+          // noinspection JSUnresolvedVariable
+          this.startIndex = response.data.StartIndex
           this.panelConfig = JSON.parse(JSON.stringify(panelConfig))
           this.slices = JSON.parse(JSON.stringify(items))
         })

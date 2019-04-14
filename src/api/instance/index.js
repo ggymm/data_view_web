@@ -24,3 +24,10 @@ export function saveScreenInstanceParams(params) {
   })
 }
 
+export function updateScreenInstanceParams(params) {
+  return request({
+    url: dataViewBaseUrl + 'screen_instance/' + params.InstanceId,
+    method: 'put',
+    data: params
+  })
+}
