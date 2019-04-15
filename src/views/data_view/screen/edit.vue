@@ -248,6 +248,7 @@
             </el-form-item>
             <el-form-item label="背景图">
               <el-col :span="20">
+                <!--suppress RequiredAttributes -->
                 <el-select v-model="panelConfig.backgroundImg" clearable>
                   <el-option
                     v-for="backgroundImg in backgroundImgList"
@@ -259,6 +260,7 @@
             </el-form-item>
             <el-form-item label="图表主题">
               <el-col :span="20">
+                <!--suppress RequiredAttributes -->
                 <el-select v-model="panelConfig.instanceTheme" clearable>
                   <el-option
                     v-for="theme in themeList"
@@ -481,7 +483,7 @@ export default {
           ChartItems: items
         }
         if (this.instanceId) {
-          updateScreenInstanceParams(screenInstance).then(response => {
+          updateScreenInstanceParams(screenInstance).then(() => {
             // 编辑
             this.$message({
               type: 'success',
