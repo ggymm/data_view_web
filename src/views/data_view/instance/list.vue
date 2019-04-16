@@ -76,6 +76,7 @@ export default {
       console.log(instanceId)
     },
     handleEdit(instanceId) {
+      window.open('#/data_view/screen/edit/' + instanceId + '/0')
     },
     handleDelete(instanceId) {
       console.log(instanceId)

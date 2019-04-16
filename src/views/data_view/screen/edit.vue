@@ -387,6 +387,7 @@ export default {
     this.getDataSourceList()
     // 获取对象
     const instanceId = this.$route.params.instanceId
+    console.log(instanceId)
     const isCopy = this.$route.params.isCopy
     this.initPageStyle()
     if (instanceId) {
@@ -440,7 +441,7 @@ export default {
         return item
       })
     },
-    handleSave() {
+    handleSave: function() {
       const _this = this
       const generateScreenCapture = new Promise(function(resolve) {
         _this.$message({
@@ -489,10 +490,13 @@ export default {
               type: 'success',
               message: '更新成功！'
             })
-            this.reload()
+            // 重新获取数据
+            this.isCopy = 0
+            this.getScreenInstanceParams(this.instanceId)
           })
         } else {
           saveScreenInstanceParams(screenInstance).then(response => {
+            const instanceId = response.data
             this.$message({
               type: 'success',
               message: '保存成功！'
@@ -502,11 +506,14 @@ export default {
             this.$router.push({
               name: 'DataViewEditInstance', params:
                 {
-                  instanceId: response.data,
+                  instanceId: instanceId,
                   isCopy: 0
                 }
             })
-            this.$router.go(0)
+            // 重新获取数据
+            this.instanceId = instanceId
+            this.isCopy = 0
+            this.getScreenInstanceParams(instanceId)
           })
         }
       }.bind(this))
