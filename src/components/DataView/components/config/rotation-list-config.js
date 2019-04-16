@@ -11,9 +11,7 @@ const RotationListConfig = function() {
       dataSourceType: '',
       database: '',
       fileName: '',
-      sql: '',
-      x: '',
-      name: ''
+      sql: 'select * from rotation_list'
     },
     data: [],
     interval: 8000,

@@ -121,7 +121,7 @@ export default {
     setData() {
       this.columnList = this.apiData.column
       this.columnWidthList = this.apiData.columnWidth
-      this.dataList = this.apiData.data
+      this.dataList = this.apiData.value
     }
   }
 }
