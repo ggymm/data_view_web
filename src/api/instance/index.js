@@ -16,6 +16,13 @@ export function getScreenInstanceParams(params) {
   })
 }
 
+export function deleteScreenInstance(params) {
+  return request({
+    url: dataViewBaseUrl + 'screen_instance/' + params,
+    method: 'delete'
+  })
+}
+
 export function saveScreenInstanceParams(params) {
   return request({
     url: dataViewBaseUrl + 'screen_instance',
@@ -31,3 +38,4 @@ export function updateScreenInstanceParams(params) {
     data: params
   })
 }
+

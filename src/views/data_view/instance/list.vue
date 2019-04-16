@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { getInstancePage } from '../../../api/instance'
+import { getInstancePage, deleteScreenInstance } from '../../../api/instance'
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -79,7 +79,24 @@ export default {
       window.open('#/data_view/screen/edit/' + instanceId + '/0')
     },
     handleDelete(instanceId) {
-      console.log(instanceId)
+      this.$confirm('是否删除该实例?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        deleteScreenInstance(instanceId).then(() => {
+          this.$message({
+            type: 'success',
+            message: '可视化实例删除成功'
+          })
+          this.getDataSourceList()
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '取消删除可视化实例'
+        })
+      })
     }
   }
 }
