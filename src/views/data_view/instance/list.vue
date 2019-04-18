@@ -73,7 +73,6 @@ export default {
       this.$router.push({ name: 'DataViewInstanceCreate' })
     },
     handlePreview(instanceId) {
-      console.log(instanceId)
     },
     handleEdit(instanceId) {
       window.open('#/data_view/screen/edit/' + instanceId + '/0')

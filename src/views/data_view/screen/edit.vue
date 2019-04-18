@@ -199,7 +199,7 @@
           class="data-view-screen">
           <layout
             :background-color="panelConfig.backgroundColor"
-            :background-img="panelConfig.backgroundImg"
+            :background-img="'url(http://localhost:8888/api/v1/data_view/image/' + panelConfig.backgroundImg + ')'"
             @layoutUpdated="handleLayoutUpdated"
             @sizeUpdate="handleSizeUpdate">
             <item
@@ -247,15 +247,25 @@
               </el-col>
             </el-form-item>
             <el-form-item label="背景图">
-              <el-col :span="20">
+              <el-col :span="12">
                 <!--suppress RequiredAttributes -->
                 <el-select v-model="panelConfig.backgroundImg" clearable>
                   <el-option
                     v-for="backgroundImg in backgroundImgList"
-                    :key="backgroundImg.value"
-                    :label="backgroundImg.label"
-                    :value="backgroundImg.value"/>
+                    :key="backgroundImg.ImageId"
+                    :label="backgroundImg.ImageName"
+                    :value="backgroundImg.ImageId"/>
                 </el-select>
+              </el-col>
+              <el-col :span="4" style="padding-left: 10px;">
+                <el-upload
+                  :on-success="uploadBackgroundSuccess"
+                  :on-error="uploadBackgroundError"
+                  :show-file-list="false"
+                  name="background_image"
+                  action="http://localhost:8888/api/v1/data_view/image">
+                  <el-button size="mini" type="primary">上传背景图</el-button>
+                </el-upload>
               </el-col>
             </el-form-item>
             <el-form-item label="图表主题">
@@ -307,6 +317,7 @@ import Item from '../../../components/DataView/components/layout/Item'
 import OptionConfigMap from '../../../components/DataView/config/option-config-map'
 import VLoading from '../../../components/Loading/LoadingModal'
 import { getDataSourceList } from '../../../api/data_source'
+import { getImageBgList } from '../../../api/image_bg'
 import { getScreenInstanceParams, saveScreenInstanceParams, updateScreenInstanceParams } from '../../../api/instance'
 
 export default {
@@ -336,9 +347,7 @@ export default {
         instanceTheme: '',
         instanceVersion: 1
       },
-      backgroundImgList: [
-        { 'label': '大数据运维背景图', 'value': 'url(static/大数据运维背景图.png)' }
-      ],
+      backgroundImgList: [],
       themeList: [
         { 'label': 'chalk', 'value': 'chalk' },
         { 'label': 'dark', 'value': 'dark' },
@@ -353,7 +362,6 @@ export default {
         { 'label': 'walden', 'value': 'walden' },
         { 'label': 'westeros', 'value': 'westeros' },
         { 'label': 'wonderland', 'value': 'wonderland' }
-
       ],
       chooseItem: {},
       dataSourceList: []
@@ -385,9 +393,9 @@ export default {
   inject: ['reload'],
   created() {
     this.getDataSourceList()
+    this.getImageBgList()
     // 获取对象
     const instanceId = this.$route.params.instanceId
-    console.log(instanceId)
     const isCopy = this.$route.params.isCopy
     this.initPageStyle()
     if (instanceId) {
@@ -548,6 +556,24 @@ export default {
     getDataSourceList() {
       getDataSourceList().then(response => {
         this.dataSourceList = response.data
+      })
+    },
+    getImageBgList() {
+      getImageBgList().then(response => {
+        this.backgroundImgList = response.data
+      })
+    },
+    uploadBackgroundSuccess() {
+      this.$message({
+        type: 'success',
+        message: '上传文件成功'
+      })
+      this.getImageBgList()
+    },
+    uploadBackgroundError(err) {
+      this.$message({
+        message: '上传文件失败，' + err,
+        type: 'error'
       })
     },
     handleScreenCapture() {

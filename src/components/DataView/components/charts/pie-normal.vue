@@ -59,7 +59,6 @@ export default {
       }
       this.option.legend.data = legendData
       this.option.series[0].data = this.apiData
-      console.log(this.option)
     }
   }
 }

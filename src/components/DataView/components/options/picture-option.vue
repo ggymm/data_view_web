@@ -83,12 +83,12 @@ export default {
     },
     handleImageUpload(file) {
       if (file.file.size <= 512 * 1024) {
-        var itemId = 'picture_' + this.item.i
-        var a = new FileReader()
+        const itemId = 'picture_' + this.item.i
+        const a = new FileReader()
         a.onload = function(e) {
-          var cv = document.getElementById(itemId)
-          var canvas = cv.getContext('2d')
-          var img = new Image()
+          const cv = document.getElementById(itemId)
+          const canvas = cv.getContext('2d')
+          const img = new Image()
           img.onload = function() {
             cv.width = img.width
             cv.height = img.height

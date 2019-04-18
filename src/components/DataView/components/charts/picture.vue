@@ -1,6 +1,8 @@
 <template>
   <div class="chart">
-    <canvas :id="'picture_' + i" style="width: 100%;height: 100%;"/>
+    <div style="width: 100%;height: 100%;">
+      <canvas :id="'picture_' + i" style="width: 100%;height: 100%;"/>
+    </div>
   </div>
 </template>
 
