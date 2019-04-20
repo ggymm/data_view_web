@@ -7,7 +7,8 @@
         class="handle-item"
         type="success"
         icon="el-icon-circle-check-outline"
-        @click="handleSubmit">提交
+        @click="handleSubmit"
+      >提交
       </el-button>
       <el-button size="mini" class="handle-item" type="info" icon="el-icon-refresh" @click="handleReset">重置</el-button>
     </div>
@@ -21,10 +22,11 @@
         :model="dataSource"
         label-width="35%"
         label-position="right"
-        size="medium">
+        size="medium"
+      >
         <el-form-item label="数据源名称" prop="DataSourceName">
           <el-col :span="12">
-            <el-input v-model="dataSource.DataSourceName" placeholder="请输入数据源名称"/>
+            <el-input v-model="dataSource.DataSourceName" placeholder="请输入数据源名称" />
           </el-col>
         </el-form-item>
         <el-form-item label="数据源类型" prop="DataSourceType">
@@ -34,18 +36,19 @@
                 v-for="dataSourceType in dataSourceTypeList"
                 :key="dataSourceType.value"
                 :label="dataSourceType.label"
-                :value="dataSourceType.value"/>
+                :value="dataSourceType.value"
+              />
             </el-select>
           </el-col>
         </el-form-item>
         <el-form-item label="数据库名称" prop="DataSourceDatabaseName">
           <el-col :span="12">
-            <el-input v-model="dataSource.DataSourceDatabaseName" placeholder="请输入数据库名称"/>
+            <el-input v-model="dataSource.DataSourceDatabaseName" placeholder="请输入数据库名称" />
           </el-col>
         </el-form-item>
         <el-form-item label="数据源IP" prop="DataSourceIp">
           <el-col :span="12">
-            <el-input v-model="dataSource.DataSourceIp" placeholder="请输入数据源IP"/>
+            <el-input v-model="dataSource.DataSourceIp" placeholder="请输入数据源IP" />
           </el-col>
         </el-form-item>
         <el-form-item label="数据源端口号" prop="DataSourcePort">
@@ -53,17 +56,18 @@
             <el-input
               v-model="dataSource.DataSourcePort"
               placeholder="请输入数据源端口号(请输入数字)"
-              @keyup.native="isNum"/>
+              @keyup.native="isNum"
+            />
           </el-col>
         </el-form-item>
         <el-form-item label="数据源登录账户" prop="DataSourceUsername">
           <el-col :span="12">
-            <el-input v-model="dataSource.DataSourceUsername" placeholder="请输入数据源登录账户"/>
+            <el-input v-model="dataSource.DataSourceUsername" placeholder="请输入数据源登录账户" />
           </el-col>
         </el-form-item>
         <el-form-item label="数据源登录密码" prop="DataSourcePassword">
           <el-col :span="12">
-            <el-input v-model="dataSource.DataSourcePassword" type="password" placeholder="请输入数据源登录密码"/>
+            <el-input v-model="dataSource.DataSourcePassword" type="password" placeholder="请输入数据源登录密码" />
           </el-col>
         </el-form-item>
         <el-form-item>

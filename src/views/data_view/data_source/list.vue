@@ -12,12 +12,14 @@
         class="handle-item fr"
         style="width: 200px;"
         clearable
-        placeholder="请选择数据源类型">
+        placeholder="请选择数据源类型"
+      >
         <el-option
           v-for="dataSourceType in dataSourceTypeList"
           :key="dataSourceType.value"
           :label="dataSourceType.label"
-          :value="dataSourceType.value"/>
+          :value="dataSourceType.value"
+        />
       </el-select>
       <el-input
         v-model="listQuery.search.data_source_name"
@@ -26,7 +28,8 @@
         style="width: 200px;"
         clearable
         placeholder="请输入数据源名称"
-        @keyup.enter.native="handleFilter"/>
+        @keyup.enter.native="handleFilter"
+      />
     </div>
     <el-table
       v-loading="listLoading"
@@ -34,8 +37,9 @@
       border
       fit
       highlight-current-row
-      style="width: 100%;">
-      <el-table-column :index="indexMethod" min-width="50" align="center" label="序号" type="index"/>
+      style="width: 100%;"
+    >
+      <el-table-column :index="indexMethod" min-width="50" align="center" label="序号" type="index" />
       <el-table-column min-width="150px" align="center" label="数据源名称">
         <template slot-scope="scope">
           <span :title="scope.row.data_source_name">{{ scope.row.DataSourceName }}</span>
@@ -77,7 +81,8 @@
         background
         layout="total, sizes, prev, pager, next"
         @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"/>
+        @current-change="handleCurrentChange"
+      />
     </div>
   </div>
 </template>

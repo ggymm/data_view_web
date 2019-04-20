@@ -1,14 +1,15 @@
 <template>
   <div
-    v-clickOutside="handleItemUnChoose"
     ref="container"
+    v-clickOutside="handleItemUnChoose"
     :class="{'choose': item.choose === 'true',
              'adaptation': item.chartType === 'progressBar',
              'slice-wrapper': item.chartType !== 'progressBar'}"
-    @click="handleItemChoose">
+    @click="handleItemChoose"
+  >
     <component
-      :loading="loading"
       :is="ChartComponentMap[item.chartType]"
+      :loading="loading"
       :api-data="chartData"
       :option="item.option"
       :i="item.i"

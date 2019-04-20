@@ -1,5 +1,5 @@
-import Layout from '../../views/layout/Layout'
-import BlankLayout from '../../views/layout/Blank-Layout'
+import Layout from '../../layout'
+import Blank from '../../layout/blank'
 
 // noinspection NpmUsedModulesInstalled
 export const dataViewRouterMap = [
@@ -57,7 +57,7 @@ export const dataViewRouterMap = [
   {
     path: '/screen',
     name: '创建数据可视化',
-    component: BlankLayout,
+    component: Blank,
     hidden: true,
     children: [
       {

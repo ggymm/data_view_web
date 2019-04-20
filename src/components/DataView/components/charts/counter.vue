@@ -6,7 +6,8 @@
         fontSize: option.fontSize + 'px',
         fontWeight: option.fontWeight,
         textAlign: option.textAlign
-    }">
+      }"
+    >
       {{ num }}
     </div>
   </div>

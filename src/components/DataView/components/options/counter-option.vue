@@ -7,12 +7,12 @@
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="图表位置(左)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.x" :min="0"/>
+                  <el-input-number v-model="item.x" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="图表位置(上)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.y" :min="0"/>
+                  <el-input-number v-model="item.y" :min="0" />
                 </el-col>
               </el-form-item>
             </el-form>
@@ -21,12 +21,12 @@
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="字体大小">
                 <el-col :span="20">
-                  <el-input-number v-model="item.option.fontSize" :min="0"/>
+                  <el-input-number v-model="item.option.fontSize" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="文本颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.fontColor"/>
+                  <el-color-picker v-model="item.option.fontColor" />
                 </el-col>
               </el-form-item>
               <el-form-item label="文本加粗">
@@ -36,7 +36,8 @@
                       v-for="fontWeight in fontWeightList"
                       :key="fontWeight.value"
                       :label="fontWeight.label"
-                      :value="fontWeight.value"/>
+                      :value="fontWeight.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
@@ -47,13 +48,14 @@
                       v-for="textAlign in textAlignList"
                       :key="textAlign.value"
                       :label="textAlign.label"
-                      :value="textAlign.value"/>
+                      :value="textAlign.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item label="背景颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.backgroundColor"/>
+                  <el-color-picker v-model="item.option.backgroundColor" />
                 </el-col>
               </el-form-item>
             </el-form>
@@ -61,7 +63,7 @@
           <el-button size="mini" type="danger" @click="handleDelete">删除图表</el-button>
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane label="数据" name="data"/>
+      <el-tab-pane label="数据" name="data" />
     </el-tabs>
   </div>
 </template>

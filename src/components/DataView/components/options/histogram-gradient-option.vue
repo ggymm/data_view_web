@@ -7,12 +7,12 @@
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="图表位置(左)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.x" :min="0"/>
+                  <el-input-number v-model="item.x" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="图表位置(上)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.y" :min="0"/>
+                  <el-input-number v-model="item.y" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="定时刷新数据">
@@ -22,7 +22,8 @@
                       v-for="refresh in refreshList"
                       :key="refresh.value"
                       :label="refresh.label"
-                      :value="refresh.value"/>
+                      :value="refresh.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
@@ -32,17 +33,17 @@
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="图表Grid(左)">
                 <el-col :span="20">
-                  <el-input v-model="item.option.grid.left"/>
+                  <el-input v-model="item.option.grid.left" />
                 </el-col>
               </el-form-item>
               <el-form-item label="图表Grid(右)">
                 <el-col :span="20">
-                  <el-input v-model="item.option.grid.right"/>
+                  <el-input v-model="item.option.grid.right" />
                 </el-col>
               </el-form-item>
               <el-form-item label="图表Grid(底)">
                 <el-col :span="20">
-                  <el-input v-model="item.option.grid.bottom"/>
+                  <el-input v-model="item.option.grid.bottom" />
                 </el-col>
               </el-form-item>
             </el-form>
@@ -56,18 +57,19 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.title.show" label="标题">
                 <el-col :span="20">
-                  <el-input v-model="item.option.title.text"/>
+                  <el-input v-model="item.option.title.text" />
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.title.show" label="标题颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.title.textStyle.color"/>
+                  <el-color-picker v-model="item.option.title.textStyle.color" />
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.title.show" label="标题位置">
@@ -77,7 +79,8 @@
                       v-for="position in positionList"
                       :key="position.value"
                       :label="position.label"
-                      :value="position.value"/>
+                      :value="position.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
@@ -92,18 +95,19 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.xAxis.axisLabel.show" label="坐标名称">
                 <el-col :span="20">
-                  <el-input v-model="item.option.xAxis.name"/>
+                  <el-input v-model="item.option.xAxis.name" />
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.xAxis.axisLabel.show" label="名称颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.xAxis.axisLabel.textStyle.color"/>
+                  <el-color-picker v-model="item.option.xAxis.axisLabel.textStyle.color" />
                 </el-col>
               </el-form-item>
               <el-form-item label="显示坐标线">
@@ -113,13 +117,14 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.xAxis.axisLine.show" label="坐标线颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.xAxis.axisLine.lineStyle.color"/>
+                  <el-color-picker v-model="item.option.xAxis.axisLine.lineStyle.color" />
                 </el-col>
               </el-form-item>
               <el-form-item label="显示分割线">
@@ -129,18 +134,19 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.xAxis.splitLine.show" label="分割线颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.xAxis.splitLine.lineStyle.color"/>
+                  <el-color-picker v-model="item.option.xAxis.splitLine.lineStyle.color" />
                 </el-col>
               </el-form-item>
               <el-form-item label="标签旋转角度">
                 <el-col :span="20">
-                  <el-input-number v-model="item.option.xAxis.axisLabel.rotate" :min="-90" :max="90"/>
+                  <el-input-number v-model="item.option.xAxis.axisLabel.rotate" :min="-90" :max="90" />
                 </el-col>
               </el-form-item>
             </el-form>
@@ -154,18 +160,19 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.yAxis.axisLabel.show" label="坐标名称">
                 <el-col :span="20">
-                  <el-input v-model="item.option.yAxis.name"/>
+                  <el-input v-model="item.option.yAxis.name" />
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.yAxis.axisLabel.show" label="名称颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.yAxis.axisLabel.textStyle.color"/>
+                  <el-color-picker v-model="item.option.yAxis.axisLabel.textStyle.color" />
                 </el-col>
               </el-form-item>
               <el-form-item label="显示坐标线">
@@ -175,13 +182,14 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.yAxis.axisLine.show" label="坐标线颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.yAxis.axisLine.lineStyle.color"/>
+                  <el-color-picker v-model="item.option.yAxis.axisLine.lineStyle.color" />
                 </el-col>
               </el-form-item>
               <el-form-item label="显示分割线">
@@ -191,13 +199,14 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.yAxis.splitLine.show" label="分割线颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.yAxis.splitLine.lineStyle.color"/>
+                  <el-color-picker v-model="item.option.yAxis.splitLine.lineStyle.color" />
                 </el-col>
               </el-form-item>
             </el-form>
@@ -214,7 +223,8 @@
                   v-for="dataSourceType in dataSourceTypeList"
                   :key="dataSourceType.value"
                   :label="dataSourceType.label"
-                  :value="dataSourceType.value"/>
+                  :value="dataSourceType.value"
+                />
               </el-select>
             </el-col>
           </el-form-item>
@@ -225,7 +235,8 @@
                   v-for="dataSource in dataSourceList"
                   :key="dataSource.DataSourceId"
                   :label="dataSource.DataSourceName"
-                  :value="dataSource.DataSourceId"/>
+                  :value="dataSource.DataSourceId"
+                />
               </el-select>
             </el-col>
           </el-form-item>
@@ -236,23 +247,24 @@
                   v-for="fileName in fileNameList"
                   :key="fileName.fileName"
                   :label="fileName.fileName"
-                  :value="fileName.fileName"/>
+                  :value="fileName.fileName"
+                />
               </el-select>
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="name">
             <el-col :span="20">
-              <el-input v-model="item.chartData.name"/>
+              <el-input v-model="item.chartData.name" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="value">
             <el-col :span="20">
-              <el-input v-model="item.chartData.value"/>
+              <el-input v-model="item.chartData.value" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">
             <el-col :span="20">
-              <el-input v-model="item.chartData.sql" type="textarea"/>
+              <el-input v-model="item.chartData.sql" type="textarea" />
             </el-col>
           </el-form-item>
         </el-form>

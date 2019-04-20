@@ -1,7 +1,7 @@
 <template>
   <div ref="item" :style="position" class="data-view-item">
-    <slot/>
-    <span ref="handle" :class="resizableHandleClass"/>
+    <slot />
+    <span ref="handle" :class="resizableHandleClass" />
   </div>
 </template>
 

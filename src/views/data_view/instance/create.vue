@@ -11,15 +11,17 @@
         default-active="1"
         class="temp-menu-list"
         active-text-color="#d2deef"
-        @select="handleChooseInstance">
+        @select="handleChooseInstance"
+      >
         <el-menu-item index="0">
-          <div class="temp-menu-item-thumbnails"/>
+          <div class="temp-menu-item-thumbnails" />
           <p class="temp-menu-item-title">新建可视化</p>
         </el-menu-item>
         <el-menu-item
           v-for="instance in list"
+          :key="instance.instanceId"
           :index="String(instance.InstanceId)"
-          :key="instance.instanceId">
+        >
           <div class="temp-menu-item-thumbnails">
             <img :src="instance.InstanceViewImg" alt="">
           </div>
@@ -58,7 +60,7 @@ export default {
     const _isOpened = this.$store.state.app.sidebar.opened
     if (_isOpened) {
       // noinspection JSIgnoredPromiseFromCall
-      this.$store.dispatch('ToggleSideBar')
+      this.$store.dispatch('app/toggleSideBar')
     }
     this.getScreenInstanceList()
   },

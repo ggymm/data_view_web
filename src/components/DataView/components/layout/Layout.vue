@@ -6,23 +6,20 @@
              backgroundImage: backgroundImg,
              backgroundRepeat: 'no-repeat',
              backgroundSize: '100% 100%'}"
-    class="data-view-container-layout">
-    <slot/>
+    class="data-view-container-layout"
+  >
+    <slot />
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import Item from './Item'
 export default {
   name: 'Layout',
   provide() {
     return {
       eventBus: null
     }
-  },
-  components: {
-    Item
   },
   props: {
     backgroundColor: {

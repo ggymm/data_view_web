@@ -2,7 +2,7 @@
   <div id="modal-overlay">
     <div class="modal-data">
       <div style="text-align:center;">
-        <v-loading style="display:inline-block;"/>
+        <v-loading style="display:inline-block;" />
       </div>
       <label class="warning">正在加载……</label>
     </div>

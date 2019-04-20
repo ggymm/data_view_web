@@ -7,12 +7,12 @@
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="图表位置(左)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.x" :min="0"/>
+                  <el-input-number v-model="item.x" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="图表位置(上)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.y" :min="0"/>
+                  <el-input-number v-model="item.y" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="定时刷新数据">
@@ -22,7 +22,8 @@
                       v-for="refresh in refreshList"
                       :key="refresh.value"
                       :label="refresh.label"
-                      :value="refresh.value"/>
+                      :value="refresh.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
@@ -33,7 +34,8 @@
                       v-for="refresh in refreshList"
                       :key="refresh.value"
                       :label="refresh.label"
-                      :value="refresh.value"/>
+                      :value="refresh.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
@@ -43,18 +45,18 @@
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="环形半径">
                 <el-col :span="8">
-                  <el-input v-model="item.option.series[0].radius[0]"/>
+                  <el-input v-model="item.option.series[0].radius[0]" />
                 </el-col>
                 <el-col :span="8" :offset="3">
-                  <el-input v-model="item.option.series[0].radius[1]"/>
+                  <el-input v-model="item.option.series[0].radius[1]" />
                 </el-col>
               </el-form-item>
               <el-form-item label="中心坐标">
                 <el-col :span="8">
-                  <el-input v-model="item.option.series[0].center[0]"/>
+                  <el-input v-model="item.option.series[0].center[0]" />
                 </el-col>
                 <el-col :span="8" :offset="3">
-                  <el-input v-model="item.option.series[0].center[1]"/>
+                  <el-input v-model="item.option.series[0].center[1]" />
                 </el-col>
               </el-form-item>
             </el-form>
@@ -68,18 +70,19 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.title.show" label="标题">
                 <el-col :span="20">
-                  <el-input v-model="item.option.title.text"/>
+                  <el-input v-model="item.option.title.text" />
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.title.show" label="标题颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.title.textStyle.color"/>
+                  <el-color-picker v-model="item.option.title.textStyle.color" />
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.title.show" label="标题位置">
@@ -89,7 +92,8 @@
                       v-for="position in positionList"
                       :key="position.value"
                       :label="position.label"
-                      :value="position.value"/>
+                      :value="position.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
@@ -104,7 +108,8 @@
                       v-for="isShow in isShowList"
                       :key="isShow.value"
                       :label="isShow.label"
-                      :value="isShow.value"/>
+                      :value="isShow.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
@@ -115,23 +120,24 @@
                       v-for="orient in orientList"
                       :key="orient.value"
                       :label="orient.label"
-                      :value="orient.value"/>
+                      :value="orient.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.legend.show" label="图例位置(左)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.option.legend.left" :min="0"/>
+                  <el-input-number v-model="item.option.legend.left" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.legend.show" label="图例位置(上)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.option.legend.top" :min="0"/>
+                  <el-input-number v-model="item.option.legend.top" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item v-if="item.option.legend.show" label="文字颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.legend.textStyle.color"/>
+                  <el-color-picker v-model="item.option.legend.textStyle.color" />
                 </el-col>
               </el-form-item>
             </el-form>
@@ -148,7 +154,8 @@
                   v-for="dataSourceType in dataSourceTypeList"
                   :key="dataSourceType.value"
                   :label="dataSourceType.label"
-                  :value="dataSourceType.value"/>
+                  :value="dataSourceType.value"
+                />
               </el-select>
             </el-col>
           </el-form-item>
@@ -159,7 +166,8 @@
                   v-for="dataSource in dataSourceList"
                   :key="dataSource.DataSourceId"
                   :label="dataSource.DataSourceName"
-                  :value="dataSource.DataSourceId"/>
+                  :value="dataSource.DataSourceId"
+                />
               </el-select>
             </el-col>
           </el-form-item>
@@ -170,23 +178,24 @@
                   v-for="fileName in fileNameList"
                   :key="fileName.fileName"
                   :label="fileName.fileName"
-                  :value="fileName.fileName"/>
+                  :value="fileName.fileName"
+                />
               </el-select>
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="name">
             <el-col :span="20">
-              <el-input v-model="item.chartData.name"/>
+              <el-input v-model="item.chartData.name" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="value">
             <el-col :span="20">
-              <el-input v-model="item.chartData.value"/>
+              <el-input v-model="item.chartData.value" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">
             <el-col :span="20">
-              <el-input v-model="item.chartData.sql" type="textarea"/>
+              <el-input v-model="item.chartData.sql" type="textarea" />
             </el-col>
           </el-form-item>
         </el-form>

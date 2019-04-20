@@ -1,14 +1,15 @@
 <template>
   <echarts
-    v-loading="loading"
     ref="chart"
+    v-loading="loading"
     :theme="theme"
     :auto-resize="true"
     :init-options="initOption"
     :options="option"
     element-loading-text="Loading..."
     class="chart"
-    @click="handleChartClick"/>
+    @click="handleChartClick"
+  />
 </template>
 <script>
 import { getRelationTwoConfig } from '../config/relation-two-config'

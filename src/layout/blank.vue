@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'Blank',
   provide() {
     return {
       reload: this.reload

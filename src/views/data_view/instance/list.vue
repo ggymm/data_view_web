@@ -6,7 +6,7 @@
         <el-card :body-style="{ padding: '0px',textAlign: 'center' }" style="height: 205px; border: 2px dashed #bbbbbb">
           <div class="new_instance">
             <div @click="handleCreateDataView">
-              <i class="el-icon-circle-plus"/>
+              <i class="el-icon-circle-plus" />
               <p>创建新的可视化</p>
             </div>
           </div>
@@ -14,13 +14,14 @@
       </el-col>
       <el-col
         v-for="instance in list"
-        :span="4"
         :key="instance.InstanceId"
-        style="padding: 0 15px; margin-bottom: 25px; width: 20%">
+        :span="4"
+        style="padding: 0 15px; margin-bottom: 25px; width: 20%"
+      >
         <el-card :body-style="{ padding: '0px' }">
           <div class="thumbnails">
             <img :src="instance.InstanceViewImg" class="image" alt="">
-            <div class="edit-shade"/>
+            <div class="edit-shade" />
             <el-button size="mini" type="primary" @click="handleEdit(instance.InstanceId)">编辑</el-button>
           </div>
           <div class="title">
@@ -28,13 +29,16 @@
           </div>
           <div class="handle">
             <el-button type="text" class="button" @click="handlePreview(instance.InstanceId)"><i
-              class="el-icon-picture-outline"/>预览
+              class="el-icon-picture-outline"
+            />预览
             </el-button>
             <el-button type="text" class="button" @click="handleEdit(instance.InstanceId)"><i
-              class="el-icon-edit-outline"/>编辑
+              class="el-icon-edit-outline"
+            />编辑
             </el-button>
             <el-button type="text" class="button" @click="handleDelete(instance.InstanceId)"><i
-              class="el-icon-circle-close-outline"/>删除
+              class="el-icon-circle-close-outline"
+            />删除
             </el-button>
           </div>
         </el-card>

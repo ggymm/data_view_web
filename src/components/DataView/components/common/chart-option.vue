@@ -3,7 +3,8 @@
     :is="OptionComponentMap[item.chartType]"
     :item="item"
     :data-source-list="dataSourceList"
-    @handleDeleteItem="handleDeleteItem" />
+    @handleDeleteItem="handleDeleteItem"
+  />
 </template>
 
 <script>

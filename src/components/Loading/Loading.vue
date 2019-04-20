@@ -1,5 +1,5 @@
 <template>
-  <div :style="styles" class="spinner spinner--circle-2"/>
+  <div :style="styles" class="spinner spinner--circle-2" />
 </template>
 
 <script>

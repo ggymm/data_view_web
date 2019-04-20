@@ -1,6 +1,6 @@
 <template>
   <div class="data-view-container">
-    <v-loading v-show="loading"/>
+    <v-loading v-show="loading" />
     <div class="data-view-header">
       <el-menu
         class="data-view-menu"
@@ -8,175 +8,176 @@
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#fff"
-        @select="handleAdd">
+        @select="handleAdd"
+      >
         <el-submenu index="plot">
           <template slot="title">散点图</template>
           <el-menu-item index="plotBubble">
-            <svg-icon icon-class="plotBubble" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="plotBubble" style="font-size: 22px;margin-right: 15px;" />
             气泡散点图
           </el-menu-item>
           <el-menu-item index="plotMap">
-            <svg-icon icon-class="plotMap" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="plotMap" style="font-size: 22px;margin-right: 15px;" />
             散点地图
           </el-menu-item>
         </el-submenu>
         <el-submenu index="line">
           <template slot="title">折线图</template>
           <el-menu-item index="lineNormal">
-            <svg-icon icon-class="lineNormal" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="lineNormal" style="font-size: 22px;margin-right: 15px;" />
             普通折线图
           </el-menu-item>
           <el-menu-item index="lineCoordinate">
-            <svg-icon icon-class="lineCoordinate" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="lineCoordinate" style="font-size: 22px;margin-right: 15px;" />
             时间轴折线图
           </el-menu-item>
           <el-menu-item index="lineStacking">
-            <svg-icon icon-class="lineStacking" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="lineStacking" style="font-size: 22px;margin-right: 15px;" />
             堆叠折线图
           </el-menu-item>
           <el-menu-item index="lineStackingArea">
-            <svg-icon icon-class="lineStackingArea" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="lineStackingArea" style="font-size: 22px;margin-right: 15px;" />
             堆叠面积图
           </el-menu-item>
         </el-submenu>
         <el-submenu index="histogram">
           <template slot="title">柱状图</template>
           <el-menu-item index="histogramGradient">
-            <svg-icon icon-class="histogramGradient" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="histogramGradient" style="font-size: 22px;margin-right: 15px;" />
             渐变柱状图
           </el-menu-item>
           <el-menu-item index="histogramGradientHorizontal">
-            <svg-icon icon-class="histogramGradientHorizontal" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="histogramGradientHorizontal" style="font-size: 22px;margin-right: 15px;" />
             水平柱状图
           </el-menu-item>
           <el-menu-item index="histogramStacking">
-            <svg-icon icon-class="histogramStacking" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="histogramStacking" style="font-size: 22px;margin-right: 15px;" />
             堆叠柱状图
           </el-menu-item>
           <el-menu-item index="histogramComplex">
-            <svg-icon icon-class="histogramComplex" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="histogramComplex" style="font-size: 22px;margin-right: 15px;" />
             复合柱状图
           </el-menu-item>
         </el-submenu>
         <el-submenu index="map">
           <template slot="title">地图</template>
           <el-menu-item index="mapChina">
-            <svg-icon icon-class="mapChina" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="mapChina" style="font-size: 22px;margin-right: 15px;" />
             中国地图
           </el-menu-item>
           <el-menu-item index="mapWorld">
-            <svg-icon icon-class="mapWorld" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="mapWorld" style="font-size: 22px;margin-right: 15px;" />
             世界地图
           </el-menu-item>
           <el-menu-item index="mapProvince">
-            <svg-icon icon-class="mapProvince" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="mapProvince" style="font-size: 22px;margin-right: 15px;" />
             省份地图
           </el-menu-item>
         </el-submenu>
         <el-submenu index="pie">
           <template slot="title">饼状图</template>
           <el-menu-item index="pieNormal">
-            <svg-icon icon-class="pieNormal" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="pieNormal" style="font-size: 22px;margin-right: 15px;" />
             普通饼图
           </el-menu-item>
           <el-menu-item index="pieRing">
-            <svg-icon icon-class="pieRing" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="pieRing" style="font-size: 22px;margin-right: 15px;" />
             环形饼图
           </el-menu-item>
           <el-menu-item index="pie2D">
-            <svg-icon icon-class="pie2D" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="pie2D" style="font-size: 22px;margin-right: 15px;" />
             2D饼图
           </el-menu-item>
           <el-menu-item index="piePercent">
-            <svg-icon icon-class="piePercent" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="piePercent" style="font-size: 22px;margin-right: 15px;" />
             环形百分比图
           </el-menu-item>
           <el-menu-item index="pieRings">
-            <svg-icon icon-class="pieRings" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="pieRings" style="font-size: 22px;margin-right: 15px;" />
             环形饼图列表
           </el-menu-item>
         </el-submenu>
         <el-submenu index="radar">
           <template slot="title">雷达图</template>
           <el-menu-item index="radarBasic">
-            <svg-icon icon-class="radarBasic" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="radarBasic" style="font-size: 22px;margin-right: 15px;" />
             基础雷达图
           </el-menu-item>
         </el-submenu>
         <el-submenu index="heat">
           <template slot="title">热力图</template>
           <el-menu-item index="heatBasic">
-            <svg-icon icon-class="heatBasic" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="heatBasic" style="font-size: 22px;margin-right: 15px;" />
             基础热力图
           </el-menu-item>
           <el-menu-item index="heatProvince">
-            <svg-icon icon-class="heatProvince" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="heatProvince" style="font-size: 22px;margin-right: 15px;" />
             省份热力图
           </el-menu-item>
           <el-menu-item index="heatMap">
-            <svg-icon icon-class="heatMap" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="heatMap" style="font-size: 22px;margin-right: 15px;" />
             热力地图
           </el-menu-item>
           <el-menu-item index="heatMapLargePiecewise">
-            <svg-icon icon-class="heatMapLargePiecewise" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="heatMapLargePiecewise" style="font-size: 22px;margin-right: 15px;" />
             颜色的离散映射
           </el-menu-item>
         </el-submenu>
         <el-submenu index="relation">
           <template slot="title">关系图</template>
           <el-menu-item index="relationOne">
-            <svg-icon icon-class="relationOne" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="relationOne" style="font-size: 22px;margin-right: 15px;" />
             关系图1
           </el-menu-item>
           <el-menu-item index="relationTwo">
-            <svg-icon icon-class="relationTwo" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="relationTwo" style="font-size: 22px;margin-right: 15px;" />
             关系图2
           </el-menu-item>
           <el-menu-item index="relationThree">
-            <svg-icon icon-class="relationThree" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="relationThree" style="font-size: 22px;margin-right: 15px;" />
             关系图3
           </el-menu-item>
           <el-menu-item index="relationFour">
-            <svg-icon icon-class="relationFour" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="relationFour" style="font-size: 22px;margin-right: 15px;" />
             关系图4
           </el-menu-item>
           <el-menu-item index="relationFive">
-            <svg-icon icon-class="relationFive" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="relationFive" style="font-size: 22px;margin-right: 15px;" />
             关系图5
           </el-menu-item>
         </el-submenu>
         <el-submenu index="other">
           <template slot="title">其他</template>
           <el-menu-item index="wordCloud">
-            <svg-icon icon-class="wordCloud" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="wordCloud" style="font-size: 22px;margin-right: 15px;" />
             词云
           </el-menu-item>
           <el-menu-item index="rotationList">
-            <svg-icon icon-class="rotationList" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="rotationList" style="font-size: 22px;margin-right: 15px;" />
             轮播列表
           </el-menu-item>
           <el-menu-item index="counter">
-            <svg-icon icon-class="counter" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="counter" style="font-size: 22px;margin-right: 15px;" />
             计数器
           </el-menu-item>
           <el-menu-item index="titleText">
-            <svg-icon icon-class="titleText" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="titleText" style="font-size: 22px;margin-right: 15px;" />
             标题文本
           </el-menu-item>
           <el-menu-item index="progressBar">
-            <svg-icon icon-class="progressBar" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="progressBar" style="font-size: 22px;margin-right: 15px;" />
             进度条
           </el-menu-item>
           <el-menu-item index="picture">
-            <svg-icon icon-class="picture" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="picture" style="font-size: 22px;margin-right: 15px;" />
             图片
           </el-menu-item>
           <el-menu-item index="clock">
-            <svg-icon icon-class="clock" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="clock" style="font-size: 22px;margin-right: 15px;" />
             时间
           </el-menu-item>
           <el-menu-item index="gauge">
-            <svg-icon icon-class="gauge" style="font-size: 22px;margin-right: 15px;"/>
+            <svg-icon icon-class="gauge" style="font-size: 22px;margin-right: 15px;" />
             仪表盘
           </el-menu-item>
         </el-submenu>
@@ -187,7 +188,8 @@
           v-if="Object.keys(chooseItem).length >= 0"
           size="mini"
           type="info"
-          @click="chooseItem = {}">画板设置
+          @click="chooseItem = {}"
+        >画板设置
         </el-button>
         <el-button size="mini" type="success">预览</el-button>
       </div>
@@ -196,12 +198,14 @@
       <div class="data-view-panel">
         <div
           :style="{width: panelConfig.panelWidth + 40 + 'px', height: panelConfig.panelHeight + 40 + 'px'}"
-          class="data-view-screen">
+          class="data-view-screen"
+        >
           <layout
             :background-color="panelConfig.backgroundColor"
             :background-img="'url(http://localhost:8888/api/v1/data_view/image/' + panelConfig.backgroundImg + ')'"
             @layoutUpdated="handleLayoutUpdated"
-            @sizeUpdate="handleSizeUpdate">
+            @sizeUpdate="handleSizeUpdate"
+          >
             <item
               v-for="item in slices"
               :key="item.slice_id"
@@ -218,7 +222,8 @@
               <Slice
                 :id="item.i"
                 :item="item"
-                @transferHandleItemChoose="handleItemChoose(item)"/>
+                @transferHandleItemChoose="handleItemChoose(item)"
+              />
             </item>
           </layout>
         </div>
@@ -228,22 +233,22 @@
           <el-form ref="form" :model="panelConfig" label-width="25%" size="mini">
             <el-form-item label="标题">
               <el-col :span="20">
-                <el-input v-model="panelConfig.title"/>
+                <el-input v-model="panelConfig.title" />
               </el-col>
             </el-form-item>
             <el-form-item label="画板高度">
               <el-col :span="20">
-                <el-input-number v-model="panelConfig.panelHeight" :min="1" :step="10"/>
+                <el-input-number v-model="panelConfig.panelHeight" :min="1" :step="10" />
               </el-col>
             </el-form-item>
             <el-form-item label="画板宽度">
               <el-col :span="20">
-                <el-input-number v-model="panelConfig.panelWidth" :min="1" :step="10"/>
+                <el-input-number v-model="panelConfig.panelWidth" :min="1" :step="10" />
               </el-col>
             </el-form-item>
             <el-form-item label="背景色">
               <el-col :span="20">
-                <el-color-picker v-model="panelConfig.backgroundColor"/>
+                <el-color-picker v-model="panelConfig.backgroundColor" />
               </el-col>
             </el-form-item>
             <el-form-item label="背景图">
@@ -254,7 +259,8 @@
                     v-for="backgroundImg in backgroundImgList"
                     :key="backgroundImg.ImageId"
                     :label="backgroundImg.ImageName"
-                    :value="backgroundImg.ImageId"/>
+                    :value="backgroundImg.ImageId"
+                  />
                 </el-select>
               </el-col>
               <el-col :span="4" style="padding-left: 10px;">
@@ -263,7 +269,8 @@
                   :on-error="uploadBackgroundError"
                   :show-file-list="false"
                   name="background_image"
-                  action="http://localhost:8888/api/v1/data_view/image">
+                  action="http://localhost:8888/api/v1/data_view/image"
+                >
                   <el-button size="mini" type="primary">上传背景图</el-button>
                 </el-upload>
               </el-col>
@@ -276,7 +283,8 @@
                     v-for="theme in themeList"
                     :key="theme.value"
                     :label="theme.label"
-                    :value="theme.value"/>
+                    :value="theme.value"
+                  />
                 </el-select>
               </el-col>
             </el-form-item>
@@ -286,7 +294,8 @@
           v-show="Object.keys(chooseItem).length >= 0"
           :data-source-list="dataSourceList"
           :item="chooseItem"
-          @handleDeleteItem="handleDelete"/>
+          @handleDeleteItem="handleDelete"
+        />
       </div>
     </div>
   </div>

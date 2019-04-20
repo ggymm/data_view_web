@@ -7,12 +7,12 @@
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="图表位置(左)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.x" :min="0"/>
+                  <el-input-number v-model="item.x" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="图表位置(上)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.y" :min="0"/>
+                  <el-input-number v-model="item.y" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="定时刷新数据">
@@ -22,14 +22,15 @@
                       v-for="refresh in refreshList"
                       :key="refresh.value"
                       :label="refresh.label"
-                      :value="refresh.value"/>
+                      :value="refresh.value"
+                    />
                   </el-select>
                 </el-col>
               </el-form-item>
             </el-form>
           </el-collapse-item>
           <el-collapse-item title="图表配置">
-            <el-form ref="form" :model="item" label-width="35%" size="mini"/>
+            <el-form ref="form" :model="item" label-width="35%" size="mini" />
           </el-collapse-item>
           <el-button size="mini" type="danger" @click="handleDelete">删除图表</el-button>
         </el-collapse>
@@ -43,7 +44,8 @@
                   v-for="dataSourceType in dataSourceTypeList"
                   :key="dataSourceType.value"
                   :label="dataSourceType.label"
-                  :value="dataSourceType.value"/>
+                  :value="dataSourceType.value"
+                />
               </el-select>
             </el-col>
           </el-form-item>
@@ -54,7 +56,8 @@
                   v-for="dataSource in dataSourceList"
                   :key="dataSource.DataSourceId"
                   :label="dataSource.DataSourceName"
-                  :value="dataSource.DataSourceId"/>
+                  :value="dataSource.DataSourceId"
+                />
               </el-select>
             </el-col>
           </el-form-item>
@@ -65,28 +68,29 @@
                   v-for="fileName in fileNameList"
                   :key="fileName.fileName"
                   :label="fileName.fileName"
-                  :value="fileName.fileName"/>
+                  :value="fileName.fileName"
+                />
               </el-select>
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="x">
             <el-col :span="20">
-              <el-input v-model="item.chartData.x"/>
+              <el-input v-model="item.chartData.x" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="y">
             <el-col :span="20">
-              <el-input v-model="item.chartData.y"/>
+              <el-input v-model="item.chartData.y" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="legend">
             <el-col :span="20">
-              <el-input v-model="item.chartData.legend"/>
+              <el-input v-model="item.chartData.legend" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">
             <el-col :span="20">
-              <el-input v-model="item.chartData.sql" type="textarea"/>
+              <el-input v-model="item.chartData.sql" type="textarea" />
             </el-col>
           </el-form-item>
         </el-form>

@@ -7,15 +7,18 @@
         lineHeight: option.column.height + 'px',
         fontSize: option.column.fontSize + 'px'
       }"
-      class="rotation-column">
+      class="rotation-column"
+    >
       <span
         v-for="(column, index) in columnList"
         :key="index"
-        :style="{width: columnWidthList[index]}">{{ column }}</span>
+        :style="{width: columnWidthList[index]}"
+      >{{ column }}</span>
     </div>
     <div
       :style="{ height: option.rowNum * option.data.height + 'px' }"
-      class="rotation-container">
+      class="rotation-container"
+    >
       <ul class="rotation-list">
         <li
           v-for="(data, index) in dataList"
@@ -25,11 +28,13 @@
             height: option.data.height + 'px',
             lineHeight: option.data.height + 'px',
             fontSize: option.data.fontSize + 'px'
-        }">
+          }"
+        >
           <span
-            v-for="(dataItem, index) in data"
-            :key="index"
-            :style="{width: columnWidthList[index]}">{{ dataItem }}</span>
+            v-for="(dataItem, childIndex) in data"
+            :key="childIndex"
+            :style="{width: columnWidthList[childIndex]}"
+          >{{ dataItem }}</span>
         </li>
       </ul>
     </div>

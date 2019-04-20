@@ -7,12 +7,12 @@
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="图表位置(左)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.x" :min="0"/>
+                  <el-input-number v-model="item.x" :min="0" />
                 </el-col>
               </el-form-item>
               <el-form-item label="图表位置(上)">
                 <el-col :span="20">
-                  <el-input-number v-model="item.y" :min="0"/>
+                  <el-input-number v-model="item.y" :min="0" />
                 </el-col>
               </el-form-item>
             </el-form>
@@ -30,7 +30,8 @@
                     :limit="1"
                     :http-request="handleImageUpload"
                     action=""
-                    list-type="picture">
+                    list-type="picture"
+                  >
                     <el-button slot="trigger" size="mini" class="handle-item" type="primary">选取文件</el-button>
                   </el-upload>
                 </el-col>
@@ -40,7 +41,7 @@
           <el-button size="mini" type="danger" @click="handleDelete">删除图表</el-button>
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane label="数据" name="data"/>
+      <el-tab-pane label="数据" name="data" />
     </el-tabs>
   </div>
 </template>
