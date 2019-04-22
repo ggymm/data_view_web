@@ -192,6 +192,7 @@
         >画板设置
         </el-button>
         <el-button size="mini" type="success">预览</el-button>
+        <el-button size="mini" type="success" @click="handleScreenCapture">打印缩略图</el-button>
       </div>
     </div>
     <div class="data-view-main">
@@ -593,7 +594,7 @@ export default {
       }
       window.html2canvas(document.getElementById('data-view-container-layout'),
         params).then(function(canvas) {
-        this.instanceViewImg = canvas.toDataURL('image/png')
+        console.log(canvas.toDataURL('image/png'))
       })
     }
   }

@@ -79,7 +79,7 @@ export default {
     handlePreview(instanceId) {
     },
     handleEdit(instanceId) {
-      window.open('#/data_view/screen/edit/' + instanceId + '/0')
+      window.open('#/screen/edit/' + instanceId + '/0')
     },
     handleDelete(instanceId) {
       this.$confirm('是否删除该实例?', '提示', {
