@@ -61,7 +61,6 @@ export default {
           'type': 'line'
         })
       }
-      console.log(JSON.stringify(this.option))
     }
   }
 }

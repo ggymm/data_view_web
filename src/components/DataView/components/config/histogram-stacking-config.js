@@ -14,41 +14,51 @@ const HistogramStackingConfig = function() {
       sql: 'select * from histogram_stacking',
       x: 'x',
       y: 'data',
-      stack: 'stack',
-      name: 'name'
+      legend: 'name'
     },
     data: {},
     interval: 8000,
     option: {
-      title: { text: '堆叠柱状图', left: 'center', textStyle: { color: '#fff' }},
-      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }},
-      legend: {
-        show: true,
-        data: [],
-        textStyle: { color: '#fff' },
-        orient: 'horizontal',
-        left: '0',
-        top: '0'
+      title: {
+        text: '堆叠柱状图',
+        left: 'center',
+        textStyle: { color: '#fff' }
       },
-      grid: { left: '15%', right: '4%', containLabel: false },
-      xAxis: [{
+      grid: {
+        left: '1%',
+        right: '4%',
+        bottom: '10%',
+        containLabel: true
+      },
+      legend: {
+        left: '1%',
+        top: '5%',
+        textStyle: { color: '#fff' }
+      },
+      tooltip: {},
+      dataset: {
+        source: []
+      },
+      xAxis: {
+        name: '',
         type: 'category',
-        data: [],
-        axisLabel: { show: true, textStyle: { color: '#fff' }, rotate: 0 }, // 分类文字的显示及颜色
-        axisTick: { show: false }, // 轴上的线，一般不用，设置为false
-        axisLine: { show: true, lineStyle: { color: '#ffffff' }}, // 轴线
-        splitLine: { show: true, lineStyle: { color: '#ffffff' }}// 图上的分隔线
-      }],
-      yAxis: [{
+        boundaryGap: true,
+        axisTick: { show: false },
+        axisLabel: { show: true, textStyle: { color: '#fff' }, rotate: 0 },
+        splitLine: { show: true, lineStyle: { color: '#ffffff' }},
+        axisLine: { show: true, lineStyle: { color: '#FFFFFF' }}
+      },
+      yAxis: {
+        name: '',
         type: 'value',
         axisTick: { show: false },
         axisLabel: { show: true, textStyle: { color: '#fff' }},
-        axisLine: { show: true, lineStyle: { color: '#ffffff' }}, // 轴线
-        splitLine: { show: true, lineStyle: { color: '#ffffff' }}// 图上的分隔线
-      }],
+        splitLine: { show: true, lineStyle: { color: '#ffffff' }},
+        splitArea: { show: true, areaStyle: { color: ['rgba(250,250,250,0.3)', 'rgba(200,200,200,0.3)'] }},
+        axisLine: { show: true, lineStyle: { color: '#FFFFFF' }}
+      },
       series: [],
-      backgroundColor: 'rgba(255,255,255,0)',
-      histcolor: []
+      backgroundColor: 'rgba(255,255,255,0)'
     }
   }
 }
