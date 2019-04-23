@@ -27,7 +27,7 @@ export default {
       }
     },
     apiData: {
-      type: Object,
+      type: Array,
       default() {
         return {}
       }
@@ -54,19 +54,14 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      this.option.xAxis.data = this.apiData.x
-      var list = []
-      for (let i = 0; i < this.apiData.y.length; i++) {
-        const map = {}
-        map.type = 'line'
-        map.data = this.apiData.y[i].data
-        map.name = this.apiData.y[i].name
-        map.smooth = true
-        map.showSymbol = this.option.showSymbol
-        list.push(map)
+      this.option.dataset.source = this.apiData
+      var size = this.apiData[0].length
+      for (var i = 0; i < size - 1; i++) {
+        this.option.series.push({
+          'type': 'line'
+        })
       }
-      this.option.series = list
-      this.option.legend.data = this.apiData.legend
+      console.log(JSON.stringify(this.option))
     }
   }
 }

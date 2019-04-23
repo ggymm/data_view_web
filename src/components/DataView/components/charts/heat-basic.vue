@@ -27,7 +27,7 @@ export default {
       }
     },
     apiData: {
-      type: Object,
+      type: Array,
       default() {
         return {}
       }
