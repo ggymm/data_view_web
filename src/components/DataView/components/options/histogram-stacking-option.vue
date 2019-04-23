@@ -83,14 +83,9 @@
               <el-input v-model="item.chartData.y" />
             </el-col>
           </el-form-item>
-          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="stack">
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="legend">
             <el-col :span="20">
-              <el-input v-model="item.chartData.stack" />
-            </el-col>
-          </el-form-item>
-          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="name">
-            <el-col :span="20">
-              <el-input v-model="item.chartData.name" />
+              <el-input v-model="item.chartData.legend" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">

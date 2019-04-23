@@ -11,7 +11,7 @@ const LineStackingConfig = function() {
       dataSourceType: '',
       database: '',
       fileName: '',
-      sql: 'select x,y,name from bpv_line_stacking_area_1',
+      sql: 'select * from line_stacking',
       x: 'x',
       y: 'y',
       legend: 'name'
@@ -30,23 +30,19 @@ const LineStackingConfig = function() {
         bottom: '10%',
         containLabel: true
       },
-      tooltip: {
-        trigger: 'axis'
-      },
       legend: {
-        show: true,
-        data: [],
-        orient: 'vertical',
-        left: '0',
-        top: '0',
+        left: '1%',
+        top: '5%',
         textStyle: { color: '#fff' }
       },
-      showSymbol: 'true',
+      tooltip: {},
+      dataset: {
+        source: []
+      },
       xAxis: {
         name: '',
         type: 'category',
-        boundaryGap: false,
-        data: [],
+        boundaryGap: true,
         axisTick: { show: false },
         axisLabel: { show: true, textStyle: { color: '#fff' }, rotate: 0 },
         splitLine: { show: true, lineStyle: { color: '#ffffff' }},

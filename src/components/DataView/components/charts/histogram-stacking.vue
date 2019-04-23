@@ -54,19 +54,13 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      this.option.xAxis.data = this.apiData.x
-      this.option.legend.data = this.apiData.legend
-      var list = []
-      this.apiData.value.forEach(function(seriesData, index) {
-        var obj = {
-          name: seriesData.name,
-          type: 'bar',
-          data: seriesData.data,
-          stack: seriesData.stack
-        }
-        list.push(obj)
-      })
-      this.option.series = list
+      this.option.dataset.source = this.apiData
+      var size = this.apiData[0].length
+      for (var i = 0; i < size - 1; i++) {
+        this.option.series.push({
+          'type': 'bar'
+        })
+      }
     }
   }
 }
