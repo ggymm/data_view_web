@@ -44,7 +44,7 @@ const PieRingConfig = function() {
               fontSize: '15',
               fontWeight: 'bold'
             },
-            formatter: '{b}:{c}'
+            formatter: '{d}%\n\n{b}'
           }
         },
         labelLine: {
