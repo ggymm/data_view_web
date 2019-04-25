@@ -20,7 +20,6 @@ import GlobalComponents from './components/DataView/components/global-components
 Vue.use(ElementUI, { locale })
 Vue.use(GlobalComponents)
 
-
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
