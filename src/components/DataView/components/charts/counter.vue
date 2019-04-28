@@ -9,6 +9,15 @@
       }"
     >
       {{ num }}
+      <span
+        :style="{
+          color: option.unit.fontColor,
+          fontSize: option.unit.fontSize + 'px',
+          fontWeight: option.unit.fontWeight
+        }"
+      >
+        {{ option.unit.title }}
+      </span>
     </div>
   </div>
 </template>

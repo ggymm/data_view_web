@@ -263,6 +263,13 @@ export default {
           object[objectKeys[i]] === '') {
           return false
         }
+        if (objectKeys[i] === 'sql') {
+          const reg = /^select\b[^\b]+\bas\b[^\b]+\bfrom\b[^\b]+\b$/
+          if (!reg.test(object[objectKeys[i]])) {
+            console.log('sql校验失败')
+            return false
+          }
+        }
       }
       return true
     }

@@ -26,7 +26,7 @@
               </el-form-item>
               <el-form-item label="文本颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.fontColor" />
+                  <el-color-picker v-model="item.option.fontColor" color-format="rgb" show-alpha />
                 </el-col>
               </el-form-item>
               <el-form-item label="文本加粗">
@@ -60,10 +60,90 @@
               </el-form-item>
             </el-form>
           </el-collapse-item>
+          <el-collapse-item title="单位配置">
+            <el-form ref="form" :model="item" label-width="35%" size="mini">
+              <el-form-item label="单位内容">
+                <el-col :span="20">
+                  <el-input v-model="item.option.unit.title" />
+                </el-col>
+              </el-form-item>
+              <el-form-item label="字体大小">
+                <el-col :span="20">
+                  <el-input-number v-model="item.option.unit.fontSize" :min="0" />
+                </el-col>
+              </el-form-item>
+              <el-form-item label="文本颜色">
+                <el-col :span="20">
+                  <el-color-picker v-model="item.option.unit.fontColor" color-format="rgb" show-alpha />
+                </el-col>
+              </el-form-item>
+              <el-form-item label="文本加粗">
+                <el-col :span="20">
+                  <el-select v-model="item.option.unit.fontWeight">
+                    <el-option
+                      v-for="fontWeight in fontWeightList"
+                      :key="fontWeight.value"
+                      :label="fontWeight.label"
+                      :value="fontWeight.value"
+                    />
+                  </el-select>
+                </el-col>
+              </el-form-item>
+            </el-form>
+          </el-collapse-item>
           <el-button size="mini" type="danger" @click="handleDelete">删除图表</el-button>
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane label="数据" name="data" />
+      <el-tab-pane label="数据" name="data">
+        <el-form ref="form" :model="item" label-width="35%" size="mini">
+          <el-form-item label="数据源类型">
+            <el-col :span="20">
+              <el-select v-model="item.chartData.dataSourceType">
+                <el-option
+                  v-for="dataSourceType in dataSourceTypeList"
+                  :key="dataSourceType.value"
+                  :label="dataSourceType.label"
+                  :value="dataSourceType.value"
+                />
+              </el-select>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="数据源">
+            <el-col :span="20">
+              <el-select v-model="item.chartData.database">
+                <el-option
+                  v-for="dataSource in dataSourceList"
+                  :key="dataSource.DataSourceId"
+                  :label="dataSource.DataSourceName"
+                  :value="dataSource.DataSourceId"
+                />
+              </el-select>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'CSV'" label="数据文件">
+            <el-col :span="20">
+              <el-select v-model="item.chartData.fileName">
+                <el-option
+                  v-for="fileName in fileNameList"
+                  :key="fileName.fileName"
+                  :label="fileName.fileName"
+                  :value="fileName.fileName"
+                />
+              </el-select>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="data">
+            <el-col :span="20">
+              <el-input v-model="item.chartData.data" />
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">
+            <el-col :span="20">
+              <el-input v-model="item.chartData.sql" type="textarea" />
+            </el-col>
+          </el-form-item>
+        </el-form>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -77,11 +157,21 @@ export default {
       default() {
         return {}
       }
+    },
+    dataSourceList: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   data() {
     return {
       activeName: 'style',
+      dataSourceTypeList: [
+        { label: '数据库数据源', value: 'DataBase' },
+        { label: 'CSV文件数据源', value: 'CSV' }
+      ],
       fontWeightList: [
         { label: '普通', value: 'normal' },
         { label: '加粗', value: 'bold' }

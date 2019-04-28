@@ -12,17 +12,22 @@ const CounterConfig = function() {
       database: '',
       fileName: '',
       sql: '',
-      x: '',
-      name: ''
+      data: ''
     },
     data: [],
     interval: 8000,
     option: {
-      fontColor: '#ffffff',
+      fontColor: 'rgba(255,255,255,1)',
       fontSize: 12,
       fontWeight: 'normal',
       textAlign: 'center',
-      backgroundColor: 'rgba(255,255,255,0)'
+      backgroundColor: 'rgba(255,255,255,0)',
+      unit: {
+        title: '单位',
+        fontColor: 'rgba(255,255,255,1)',
+        fontSize: 12,
+        fontWeight: 'normal'
+      }
     }
   }
 }

@@ -19,7 +19,7 @@ const TitleTextConfig = function() {
     interval: 8000,
     option: {
       title: '标题文本',
-      fontColor: '#ffffff',
+      fontColor: 'rgba(255,255,255,1)',
       fontSize: 12,
       fontWeight: 'normal',
       textAlign: 'center',

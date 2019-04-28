@@ -31,7 +31,7 @@
               </el-form-item>
               <el-form-item label="文本颜色">
                 <el-col :span="20">
-                  <el-color-picker v-model="item.option.fontColor" />
+                  <el-color-picker v-model="item.option.fontColor" color-format="rgb" show-alpha />
                 </el-col>
               </el-form-item>
               <el-form-item label="文本加粗">
