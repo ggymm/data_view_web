@@ -8,7 +8,8 @@
         textAlign: option.textAlign
       }"
     >
-      {{ num }}
+      <span v-if="option.thousandth">{{ num | numFormat }}</span>
+      <span v-if="!option.thousandth">{{ num }}</span>
       <span
         :style="{
           color: option.unit.fontColor,

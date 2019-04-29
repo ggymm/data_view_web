@@ -58,6 +58,17 @@
                   <el-color-picker v-model="item.option.backgroundColor" />
                 </el-col>
               </el-form-item>
+              <el-form-item label="千分位分隔符">
+                <el-col :span="20">
+                  <el-switch
+                    v-model="item.option.thousandth"
+                    active-color="#13ce66"
+                    inactive-color="#ff4949"
+                    :active-value="true"
+                    :inactive-value="false"
+                  />
+                </el-col>
+              </el-form-item>
             </el-form>
           </el-collapse-item>
           <el-collapse-item title="单位配置">

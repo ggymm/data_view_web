@@ -22,6 +22,7 @@ const CounterConfig = function() {
       fontWeight: 'normal',
       textAlign: 'center',
       backgroundColor: 'rgba(255,255,255,0)',
+      thousandth: true,
       unit: {
         title: '单位',
         fontColor: 'rgba(255,255,255,1)',

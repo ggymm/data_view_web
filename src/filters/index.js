@@ -78,3 +78,8 @@ export function formatNull(text) {
 export function openOrClose(text) {
   return text === 0 ? '未开启' : '开启'
 }
+
+export function numFormat(value) {
+  if (!value) return ' '
+  return Number(value).toFixed(0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') // 将整数部分逢三一断
+}
