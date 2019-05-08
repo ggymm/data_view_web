@@ -100,7 +100,7 @@
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">
             <el-col :span="20">
-              <el-input v-model="item.chartData.sql" type="textarea" />
+              <el-input v-model="item.chartData.sql" type="textarea" readonly @click.native="handleEditSql" />
             </el-col>
           </el-form-item>
         </el-form>
@@ -162,6 +162,9 @@ export default {
           message: '已取消删除'
         })
       })
+    },
+    handleEditSql() {
+      this.$emit('handleEditSql', this.item.chartData.sql)
     }
   }
 }

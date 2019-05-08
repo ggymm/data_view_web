@@ -31,7 +31,7 @@
       :visible.sync="sqlDialogVisible"
       width="60%"
     >
-      <span style="margin-left: 35px;">{{code}}</span>
+      <span style="margin-left: 35px;">{{ code }}</span>
       <codemirror
         v-model="sql"
         :options="editor"
@@ -95,7 +95,7 @@ import OptionComponentMap from '../../config/option-component-map'
 import { codemirror } from 'vue-codemirror-lite'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/lib/codemirror.css'
-import 'codemirror/addon/hint/show-hint.css'
+import '../../../../styles/show-hint.css'
 import sqlFormatter from 'sql-formatter'
 import 'codemirror/addon/edit/matchbrackets.js'
 import 'codemirror/addon/selection/active-line.js'
