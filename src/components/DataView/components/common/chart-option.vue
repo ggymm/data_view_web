@@ -6,6 +6,7 @@
       :data-source-list="dataSourceList"
       @handleDeleteItem="handleDeleteItem"
       @handleEditOption="handleEditOption"
+      @handleEditSql="handleEditSql"
     />
     <el-dialog
       title="编辑图表Option"
@@ -21,6 +22,24 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="optionJsonDialogVisible = false">取消</el-button>
         <el-button type="primary" @click="changeOption">确定</el-button>
+      </span>
+    </el-dialog>
+    <el-dialog
+      title="编辑SQL"
+      :close-on-click-modal="false"
+      :close-on-press-escape="false"
+      :visible.sync="sqlDialogVisible"
+      width="60%"
+    >
+      <span style="margin-left: 35px;">{{code}}</span>
+      <codemirror
+        v-model="sql"
+        :options="editor"
+      />
+      <span slot="footer" class="dialog-footer">
+        <el-button type="info" @click="beautifySql">美化SQL</el-button>
+        <el-button @click="sqlDialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="changeSql">确定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -76,6 +95,14 @@ import OptionComponentMap from '../../config/option-component-map'
 import { codemirror } from 'vue-codemirror-lite'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/lib/codemirror.css'
+import 'codemirror/addon/hint/show-hint.css'
+import sqlFormatter from 'sql-formatter'
+import 'codemirror/addon/edit/matchbrackets.js'
+import 'codemirror/addon/selection/active-line.js'
+import 'codemirror/mode/sql/sql.js'
+import 'codemirror/addon/hint/show-hint.js'
+import 'codemirror/addon/hint/sql-hint.js'
+import 'codemirror/lib/codemirror.js'
 
 export default {
   name: 'ChartOption',
@@ -143,6 +170,7 @@ export default {
     return {
       OptionComponentMap,
       optionJsonDialogVisible: false,
+      sqlDialogVisible: false,
       editorOption: {
         tabSize: 4,
         mode: 'application/json',
@@ -150,7 +178,25 @@ export default {
         lineNumbers: true,
         line: true
       },
-      option: ''
+      editor: {
+        mode: 'text/x-mysql', // 选择对应代码编辑器的语言，我这边选的是数据库，根据个人情况自行设置即可
+        theme: 'idea',
+        indentWithTabs: true,
+        smartIndent: true,
+        lineNumbers: true,
+        matchBrackets: true,
+        extraKeys: { 'Ctrl': 'autocomplete' } // 自定义快捷键
+      },
+      option: '',
+      sql: '',
+      code: '//按Ctrl键进行代码提示'
+    }
+  },
+  mounted() {
+    if (this.sqlDialogVisible === true) {
+      this.editor.on('cursorActivity', function() {
+        this.editor.showHint()
+      })
     }
   },
   methods: {
@@ -165,6 +211,18 @@ export default {
       this.optionJsonDialogVisible = false
       console.log(JSON.parse(this.option))
       this.item.option = JSON.parse(this.option)
+    },
+    handleEditSql(sql) {
+      this.sqlDialogVisible = true
+      this.sql = sql
+    },
+    beautifySql() {
+      this.sql = sqlFormatter.format(this.sql)
+    },
+    changeSql() {
+      this.sqlDialogVisible = false
+      console.log(this.sql)
+      this.item.chartData.sql = this.sql
     },
     formatJson(json, options) {
       let reg = null
