@@ -25,6 +25,7 @@ const LineStackingConfig = function() {
         textStyle: { color: '#fff' }
       },
       grid: {
+        top: '60',
         left: '1%',
         right: '4%',
         bottom: '10%',
