@@ -19,31 +19,21 @@ const LineNormalConfig = function() {
     interval: 8000,
     option: {
       title: {
-        text: '普通折线图',
+        text: '标准折线图',
         left: 'center',
         textStyle: {
           color: '#fff'
         }
       },
       tooltip: {
-        show: true,
-        feature: {
-          dataZoom: {
-            yAxisIndex: 'none'
-          },
-          dataView: { readOnly: false },
-          magicType: { type: ['line', 'bar'] },
-          restore: {},
-          saveAsImage: {}
-        }
+        trigger: 'axis'
       },
       legend: {
-        show: true,
         data: [],
-        orient: 'vertical',
-        left: '0',
-        top: '0',
-        textStyle: { color: '#fff' }
+        left: 'left',
+        textStyle: {
+          color: '#fff'
+        }
       },
       grid: {
         left: '1%',
@@ -58,7 +48,7 @@ const LineNormalConfig = function() {
         splitLine: { show: true, lineStyle: { color: '#ffffff' }},
         axisTick: { show: false },
         boundaryGap: false,
-        data: [],
+        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
         axisLine: { show: true, lineStyle: { color: '#FFFFFF' }}
       },
       yAxis: {
@@ -69,6 +59,17 @@ const LineNormalConfig = function() {
         splitLine: { show: true, lineStyle: { color: '#ffffff' }},
         axisLine: { show: true, lineStyle: { color: '#FFFFFF' }}
       },
+      toolbox: {
+        show: true,
+        feature: {
+          mark: { show: true },
+          dataView: { show: true, readOnly: false },
+          magicType: { show: true, type: ['line', 'bar'] },
+          restore: { show: true },
+          saveAsImage: { show: true }
+        }
+      },
+      calculable: true,
       series: [],
       backgroundColor: 'rgba(255,255,255,0)'
     }

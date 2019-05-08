@@ -54,16 +54,27 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      this.option.xAxis.data = this.apiData.x
-      var list = []
-      const map = {}
-      map.type = 'line'
-      map.data = this.apiData.y[0].data
-      map.name = this.apiData.y[0].name
-      map.smooth = false
-      map.showSymbol = this.option.showSymbol
-      list.push(map)
-      this.option.series = list
+      this.option.legend.data = this.apiData.legend
+      var _data = this.apiData.y
+      for (var i = 0; i < _data.length; i++) {
+        var series = {
+          name: _data[i].name,
+          type: 'line',
+          data: _data[i].value,
+          markPoint: {
+            data: [
+              { type: 'max', name: '最大值' },
+              { type: 'min', name: '最小值' }
+            ]
+          },
+          markLine: {
+            data: [
+              { type: 'average', name: '平均值' }
+            ]
+          }
+        }
+        this.option.series.push(series)
+      }
     }
   }
 }

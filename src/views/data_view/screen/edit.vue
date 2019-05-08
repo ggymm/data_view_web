@@ -25,7 +25,7 @@
           <template slot="title">折线图</template>
           <el-menu-item index="lineNormal">
             <svg-icon icon-class="lineNormal" style="font-size: 22px;margin-right: 15px;" />
-            普通折线图
+            标准折线图
           </el-menu-item>
           <el-menu-item index="lineCoordinate">
             <svg-icon icon-class="lineCoordinate" style="font-size: 22px;margin-right: 15px;" />
