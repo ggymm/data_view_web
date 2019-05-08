@@ -181,15 +181,15 @@ export default {
       editor: {
         mode: 'text/x-mysql', // 选择对应代码编辑器的语言，我这边选的是数据库，根据个人情况自行设置即可
         theme: 'idea',
-        indentWithTabs: true,
+        indentWithTabs: false,
         smartIndent: true,
         lineNumbers: true,
         matchBrackets: true,
-        extraKeys: { 'Ctrl': 'autocomplete' } // 自定义快捷键
+        extraKeys: { 'Tab': 'autocomplete' } // 自定义快捷键
       },
       option: '',
       sql: '',
-      code: '//按Ctrl键进行代码提示'
+      code: '//按Tab键进行代码提示'
     }
   },
   mounted() {
