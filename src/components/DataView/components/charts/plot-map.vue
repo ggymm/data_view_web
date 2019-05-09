@@ -55,57 +55,9 @@ export default {
     },
     setData() {
       var _data = this.apiData
-      var series1 =
-        {
-          name: '弱',
-          type: 'scatter',
-          coordinateSystem: 'geo',
-          symbolSize: 1,
-          large: true,
-          itemStyle: {
-            normal: {
-              shadowBlur: 2,
-              shadowColor: 'rgba(37,140,249,1)',
-              color: 'rgba(37,140,249,1)'
-            }
-          },
-          data: _data[2]
-        }
-      var series2 =
-        {
-          name: '中',
-          type: 'scatter',
-          coordinateSystem: 'geo',
-          symbolSize: 1,
-          large: true,
-          itemStyle: {
-            normal: {
-              shadowBlur: 2,
-              shadowColor: 'rgba(14,241,242,1)',
-              color: 'rgba(14,241,242,1)'
-            }
-          },
-          data: _data[1]
-        }
-      var series3 =
-        {
-          name: '强',
-          type: 'scatter',
-          coordinateSystem: 'geo',
-          symbolSize: 1,
-          large: true,
-          itemStyle: {
-            normal: {
-              shadowBlur: 2,
-              shadowColor: 'rgba(255,255,255,1)',
-              color: 'rgba(255,255,255,1)'
-            }
-          },
-          data: _data[0]
-        }
-      this.option.series.push(series1)
-      this.option.series.push(series2)
-      this.option.series.push(series3)
+      this.option.series[1].data = _data[1]
+      this.option.series[2].data = _data[2]
+      this.option.series[3].data = _data[3]
     }
   }
 }

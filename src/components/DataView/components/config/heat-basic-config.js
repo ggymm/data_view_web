@@ -37,7 +37,13 @@ const HeatBasicConfig = function() {
           color: ['blue', 'blue', 'green', 'yellow', 'red']
         }
       },
-      series: [],
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'bmap',
+        data: [],
+        pointSize: 5,
+        blurSize: 6
+      }],
       backgroundColor: 'rgba(255,255,255,0)'
     }
   }

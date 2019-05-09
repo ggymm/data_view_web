@@ -55,14 +55,7 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      const item = {
-        type: 'heatmap',
-        coordinateSystem: 'bmap',
-        data: this.apiData,
-        pointSize: 5,
-        blurSize: 6
-      }
-      this.option.series.push(item)
+      this.option.series.data = this.apiData
     }
   }
 }

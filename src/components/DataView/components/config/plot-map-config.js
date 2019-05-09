@@ -55,50 +55,53 @@ const PlotMapConfig = function() {
           }
         }
       },
-      series: [],
-      //   {
-      //   name: '弱',
-      //   type: 'scatter',
-      //   coordinateSystem: 'geo',
-      //   symbolSize: 1,
-      //   large: true,
-      //   itemStyle: {
-      //     normal: {
-      //       shadowBlur: 2,
-      //       shadowColor: 'rgba(37,140,249,0.8)',
-      //       color: 'rgba(37,140,249,0.8)'
-      //     }
-      //   },
-      //   data: []
-      // }, {
-      //   name: '中',
-      //   type: 'scatter',
-      //   coordinateSystem: 'geo',
-      //   symbolSize: 1,
-      //   large: true,
-      //   itemStyle: {
-      //     normal: {
-      //       shadowBlur: 2,
-      //       shadowColor: 'rgba(14,241,242,0.8)',
-      //       color: 'rgba(14,241,242,0.8)'
-      //     }
-      //   },
-      //   data: []
-      // }, {
-      //   name: '强',
-      //   type: 'scatter',
-      //   coordinateSystem: 'geo',
-      //   symbolSize: 1,
-      //   large: true,
-      //   itemStyle: {
-      //     normal: {
-      //       shadowBlur: 2,
-      //       shadowColor: 'rgba(255,255,255,0.8)',
-      //       color: 'rgba(255,255,255,0.8)'
-      //     }
-      //   },
-      //   data: []
-      // }
+      series: [
+        {
+          name: '弱',
+          type: 'scatter',
+          coordinateSystem: 'geo',
+          symbolSize: 1,
+          large: true,
+          itemStyle: {
+            normal: {
+              shadowBlur: 2,
+              shadowColor: 'rgba(37,140,249,1)',
+              color: 'rgba(37,140,249,1)'
+            }
+          },
+          data: []
+        },
+        {
+          name: '中',
+          type: 'scatter',
+          coordinateSystem: 'geo',
+          symbolSize: 1,
+          large: true,
+          itemStyle: {
+            normal: {
+              shadowBlur: 2,
+              shadowColor: 'rgba(14,241,242,1)',
+              color: 'rgba(14,241,242,1)'
+            }
+          },
+          data: []
+        },
+        {
+          name: '强',
+          type: 'scatter',
+          coordinateSystem: 'geo',
+          symbolSize: 1,
+          large: true,
+          itemStyle: {
+            normal: {
+              shadowBlur: 2,
+              shadowColor: 'rgba(255,255,255,1)',
+              color: 'rgba(255,255,255,1)'
+            }
+          },
+          data: []
+        }
+      ],
       backgroundColor: 'rgba(255,255,255,0)'
     }
   }

@@ -64,7 +64,7 @@ export default {
           type: 'line',
           data: _data[i].value,
           stack: '总量',
-          areaStyle: {},
+          areaStyle: {}
         }
         this.option.series.push(series)
       }

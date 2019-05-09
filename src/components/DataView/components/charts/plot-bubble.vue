@@ -65,6 +65,7 @@ export default {
         }
       }
       var _data = this.apiData.y
+      this.option.series = []
       for (var i = 0; i < _data.length; i++) {
         var series = {
           name: _data[i].name,
