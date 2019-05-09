@@ -11,8 +11,9 @@ const PiePercentConfig = function() {
       dataSourceType: '',
       database: '',
       fileName: '',
-      sql: 'select value from pie_percent',
-      value: 'value'
+      sql: 'select * from pie',
+      value: 'value',
+      name: 'name'
     },
     data: [],
     interval: 8000,
@@ -26,49 +27,56 @@ const PiePercentConfig = function() {
           fontSize: 20
         }
       },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+      },
+      legend: {
+        orient: 'vertical',
+        x: 'left',
+        data: [],
+        textStyle: {
+          color: '#ffffff'
+        }
+      },
       series: [
         {
+          name: '',
           type: 'pie',
           radius: ['40%', '55%'],
-          center: ['50%', '50%'],
-          silent: true,
           label: {
             normal: {
-              show: false
-            }
-          },
-          data: [{
-            value: 1,
-            itemStyle: {
-              normal: {
-                color: '#ffffff'
-              }
-            }
-          }]
-        },
-        {
-          name: 'main',
-          type: 'pie',
-          radius: ['55%', '75%'],
-          center: ['50%', '50%'],
-          label: {
-            normal: {
-              show: false
-            }
-          },
-          data: [
-            {
-              value: 0
-            },
-            {
-              value: 0,
-              itemStyle: {
-                normal: {
-                  color: 'rgba(0,0,0,0)'
+              formatter: ' {b|{b}：}{c}  {per|{d}%}  ',
+              backgroundColor: '#eee',
+              borderColor: '#aaa',
+              borderWidth: 1,
+              borderRadius: 4,
+              rich: {
+                a: {
+                  color: '#999',
+                  lineHeight: 22,
+                  align: 'center'
+                },
+                hr: {
+                  borderColor: '#aaa',
+                  width: '100%',
+                  borderWidth: 0.5,
+                  height: 0
+                },
+                b: {
+                  fontSize: 16,
+                  lineHeight: 33
+                },
+                per: {
+                  color: '#eee',
+                  backgroundColor: '#334455',
+                  padding: [2, 4],
+                  borderRadius: 2
                 }
               }
             }
-          ]
+          },
+          data: []
         }
       ],
       toolbox: {

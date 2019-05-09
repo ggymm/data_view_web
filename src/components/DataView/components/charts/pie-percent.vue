@@ -54,9 +54,12 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      this.option.title.text = this.apiData + '%'
-      this.option.series[1].data[0].value = parseInt(this.apiData)
-      this.option.series[1].data[1].value = 100 - parseInt(this.apiData)
+      const legendData = []
+      for (let i = 0; i < this.apiData.length; i++) {
+        legendData.push(this.apiData[i].name)
+      }
+      this.option.legend.data = legendData
+      this.option.series[0].data = this.apiData
     }
   }
 }

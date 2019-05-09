@@ -32,9 +32,6 @@
               </el-form-item>
             </el-form>
           </el-collapse-item>
-          <el-collapse-item title="图表配置">
-            <el-form ref="form" :model="item" label-width="35%" size="mini" />
-          </el-collapse-item>
           <el-button size="mini" type="danger" @click="handleDelete">删除图表</el-button>
         </el-collapse>
       </el-tab-pane>
@@ -74,6 +71,11 @@
                   :value="fileName.fileName"
                 />
               </el-select>
+            </el-col>
+          </el-form-item>
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="name">
+            <el-col :span="20">
+              <el-input v-model="item.chartData.name" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="value">
