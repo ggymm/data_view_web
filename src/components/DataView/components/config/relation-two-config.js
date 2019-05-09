@@ -41,6 +41,11 @@ const RelationTwoConfig = function() {
         label: { normal: { position: 'right' }}
         // force: { repulsion: 100 }
       }],
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       backgroundColor: 'rgba(255,255,255,0)'
     }
   }

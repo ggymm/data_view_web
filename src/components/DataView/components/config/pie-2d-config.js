@@ -74,6 +74,11 @@ const Pie2DConfig = function() {
           return Math.random() * 200
         }
       }],
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       backgroundColor: 'rgba(255,255,255,0)'
     }
   }

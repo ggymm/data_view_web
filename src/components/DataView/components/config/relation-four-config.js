@@ -52,6 +52,11 @@ const RelationFourConfig = function() {
         },
         edges: []
       }],
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       backgroundColor: 'rgba(255,255,255,0)'
     }
   }

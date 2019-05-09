@@ -60,6 +60,11 @@ const LineNormalConfig = function() {
         axisLine: { show: true, lineStyle: { color: '#FFFFFF' }}
       },
       calculable: true,
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [],
       backgroundColor: 'rgba(255,255,255,0)'
     }

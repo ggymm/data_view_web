@@ -48,7 +48,12 @@ const RadarBasicConfig = function() {
         type: 'radar',
         areaStyle: { normal: { opacity: 0.4 }},
         data: []
-      }]
+      }],
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      }
     }
   }
 }

@@ -21,6 +21,11 @@ const PieRingsConfig = function() {
       title: { text: '环形饼图列表', x: 'center', textStyle: { color: '#fff' }},
       legend: { x: 'center', y: 'center', textStyle: { color: '#fff' }},
       series: [],
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       backgroundColor: 'rgba(255,255,255,0)'
     }
   }
