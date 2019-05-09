@@ -3,6 +3,9 @@
     <el-tabs v-model="activeName">
       <el-tab-pane label="样式" name="style">
         <el-collapse accordion>
+          <el-collapse-item title="自定义">
+            <el-button size="mini" type="primary" @click="handleEditOption">编辑Option</el-button>
+          </el-collapse-item>
           <el-collapse-item title="全局样式">
             <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="图表位置(左)">
@@ -82,6 +85,9 @@ export default {
           message: '已取消删除'
         })
       })
+    },
+    handleEditOption() {
+      this.$emit('handleEditOption', this.item.option)
     }
   }
 }
