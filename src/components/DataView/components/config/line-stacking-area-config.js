@@ -20,7 +20,7 @@ const LineStackingAreaConfig = function() {
     interval: 8000,
     option: {
       title: {
-        text: '堆叠折线面积图',
+        text: '堆叠面积图',
         left: 'center',
         textStyle: { color: '#fff' }
       },

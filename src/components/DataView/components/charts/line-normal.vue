@@ -56,6 +56,7 @@ export default {
     setData() {
       this.option.legend.data = this.apiData.legend
       var _data = this.apiData.y
+      this.option.series = []
       for (var i = 0; i < _data.length; i++) {
         var series = {
           name: _data[i].name,
@@ -74,7 +75,6 @@ export default {
           }
         }
         this.option.series.push(series)
-        console.log(this.option)
       }
     }
   }
