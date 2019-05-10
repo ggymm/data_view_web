@@ -76,19 +76,14 @@
               </el-select>
             </el-col>
           </el-form-item>
-          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="x">
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="name">
             <el-col :span="20">
-              <el-input v-model="item.chartData.x" />
+              <el-input v-model="item.chartData.name" />
             </el-col>
           </el-form-item>
-          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="y">
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="value">
             <el-col :span="20">
-              <el-input v-model="item.chartData.y" />
-            </el-col>
-          </el-form-item>
-          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="legend">
-            <el-col :span="20">
-              <el-input v-model="item.chartData.legend" />
+              <el-input v-model="item.chartData.value" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">

@@ -12,9 +12,8 @@ const HistogramGradientHorizontalConfig = function() {
       database: '',
       fileName: '',
       sql: 'select * from histogram_gradient',
-      x: 'value',
-      y: 'x',
-      legend: '无'
+      value: 'value',
+      name: 'x'
     },
     data: {},
     interval: 8000,
@@ -67,7 +66,11 @@ const HistogramGradientHorizontalConfig = function() {
           saveAsImage: {}
         }
       },
-      series: [],
+      series: {
+        name: '',
+        type: 'bar',
+        data: []
+      },
       backgroundColor: 'rgba(255,255,255,0)'
     }
   }

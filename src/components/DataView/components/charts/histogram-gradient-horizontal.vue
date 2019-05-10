@@ -54,24 +54,8 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      var list = []
-      this.apiData.x.forEach(function(seriesData, index) {
-        var obj = {
-          name: seriesData.name,
-          type: 'bar',
-          label: {
-            normal: {
-              show: false,
-              position: 'inside'
-            }
-          },
-          data: seriesData.value
-        }
-        list.push(obj)
-      })
-      this.option.series = list
-      this.option.yAxis.data = this.apiData.y
-      this.option.legend.data = this.apiData.legend
+      this.option.yAxis.data = this.apiData.dataAxis
+      this.option.series.data = this.apiData.data
     }
   }
 }
