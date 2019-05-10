@@ -41,6 +41,11 @@ const HeatMapConfig = function() {
           emphasis: { areaColor: '#2a333d' }
         }
       },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [
         {
           name: '访问来源',

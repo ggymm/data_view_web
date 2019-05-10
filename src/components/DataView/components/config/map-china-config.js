@@ -49,6 +49,11 @@ const MapChinaConfig = function() {
         }
       },
       backgroundColor: 'rgba(255,255,255,0)',
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: []
     }
   }

@@ -1,3 +1,4 @@
+import echarts from 'vue-echarts/components/ECharts'
 const HistogramGradientConfig = function() {
   this.config = {
     x: 0,
@@ -53,6 +54,11 @@ const HistogramGradientConfig = function() {
         axisLabel: { show: true, textStyle: { color: '#fff' }}
       },
       dataZoom: [{ type: 'inside' }],
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [
         {
           type: 'bar',
@@ -67,8 +73,28 @@ const HistogramGradientConfig = function() {
         },
         {
           type: 'bar',
-          barWidth: '50%',
-          itemStyle: { normal: { color: '' }, emphasis: { color: '' }},
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(
+                0, 0, 0, 1,
+                [
+                  { offset: 0, color: '#83bff6' },
+                  { offset: 0.5, color: '#188df0' },
+                  { offset: 1, color: '#188df0' }
+                ]
+              )
+            },
+            emphasis: {
+              color: new echarts.graphic.LinearGradient(
+                0, 0, 0, 1,
+                [
+                  { offset: 0, color: '#2378f7' },
+                  { offset: 0.7, color: '#2378f7' },
+                  { offset: 1, color: '#83bff6' }
+                ]
+              )
+            }
+          },
           data: []
         }
       ]

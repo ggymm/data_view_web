@@ -54,9 +54,13 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      this.option.xAxis.data = this.apiData.x
-      this.option.series[0].data = this.apiData.maxValue
-      this.option.series[1].data = this.apiData.value
+      var dataShadow = []
+      for (var i = 0; i < this.apiData.data.length; i++) {
+        dataShadow.push(this.apiData.yMax)
+      }
+      this.option.xAxis.data = this.apiData.dataAxis
+      this.option.series[0].data = dataShadow
+      this.option.series[1].data = this.apiData.data
     }
   }
 }

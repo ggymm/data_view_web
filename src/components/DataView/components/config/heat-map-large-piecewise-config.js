@@ -48,6 +48,11 @@ const HeatMapLargePiecewiseConfig = function() {
           color: ['rgba(107,205,40,1)', 'yellow', 'orange', 'red', 'rgba(182,33,145,1)', 'rgba(57,7,7,1)']
         }
       },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [{
         name: '',
         type: 'heatmap',

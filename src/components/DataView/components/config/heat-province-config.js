@@ -55,6 +55,11 @@ const HeatProvinceConfig = function() {
           }
         }
       },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [{
         name: 'AQI',
         type: 'heatmap',

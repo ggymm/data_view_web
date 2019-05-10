@@ -62,6 +62,11 @@ const HistogramGradientHorizontalConfig = function() {
         splitLine: { show: true, lineStyle: { color: '#ffffff' }}, // 图上的分隔线
         data: []
       },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [],
       backgroundColor: 'rgba(255,255,255,0)'
     }

@@ -37,6 +37,11 @@ const HeatBasicConfig = function() {
           color: ['blue', 'blue', 'green', 'yellow', 'red']
         }
       },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [{
         type: 'heatmap',
         coordinateSystem: 'bmap',

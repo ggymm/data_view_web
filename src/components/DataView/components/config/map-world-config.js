@@ -42,6 +42,11 @@ const MapWorldConfig = function() {
           color: ['lightskyblue', 'yellow', 'orangered']
         }
       },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [
         {
           name: '世界地图',

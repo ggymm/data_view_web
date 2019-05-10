@@ -70,6 +70,11 @@ const HistogramComplexConfig = function() {
         axisLine: { show: true, lineStyle: { color: '#ffffff' }}, // 轴线
         splitLine: { show: true, lineStyle: { color: '#ffffff' }}// 图上的分隔线
       }],
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [{ name: '', type: 'bar', xAxisIndex: 1, yAxisIndex: 1, data: [] }, { name: '', type: 'line', data: [] }],
       backgroundColor: 'rgba(255,255,255,0)'
     }

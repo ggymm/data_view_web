@@ -35,6 +35,11 @@ const MapProvinceConfig = function() {
       tooltip: {
         formatter: ''
       },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
       series: [
         {
           type: 'map',
