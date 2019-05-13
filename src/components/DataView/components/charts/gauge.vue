@@ -12,9 +12,9 @@
   />
 </template>
 <script>
-import { getHistogramComplexConfig } from '../config/histogram-complex-config'
+import { getGaugeConfig } from '../config/gauge-config'
 export default {
-  name: 'HistogramComplex',
+  name: 'Gauge',
   props: {
     loading: {
       type: Boolean,
@@ -23,11 +23,11 @@ export default {
     option: {
       type: Object,
       default() {
-        return getHistogramComplexConfig().option
+        return getGaugeConfig().option
       }
     },
     apiData: {
-      type: Object,
+      type: Array,
       default() {
         return {}
       }
@@ -35,8 +35,8 @@ export default {
   },
   data() {
     return {
-      chartType: 'HistogramComplex',
-      initOption: getHistogramComplexConfig().option
+      chartType: 'gauge',
+      initOption: getGaugeConfig().option
     }
   },
   watch: {
@@ -54,12 +54,9 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      this.option.legend.data = this.apiData.legend
-      var _data = this.apiData.value
-      for (var i = 0; i < _data.length; i++) {
-        this.option.xAxis[i].data = _data[i].x
-        this.option.series[i].data = _data[i].y
-      }
+      var seriesData = []
+      seriesData = this.apiData[0]
+      this.option.series.data.push(seriesData)
     }
   }
 }

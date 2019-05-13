@@ -40,7 +40,8 @@ import {
   getCounterConfig,
   getTitleTextConfig,
   getProgressBarConfig,
-  getPictureConfig
+  getPictureConfig,
+  getGaugeConfig
 } from '../components/config'
 
 const OptionConfigMap = {
@@ -85,7 +86,8 @@ const OptionConfigMap = {
   'counter': getCounterConfig,
   'titleText': getTitleTextConfig,
   'progressBar': getProgressBarConfig,
-  'picture': getPictureConfig
+  'picture': getPictureConfig,
+  'gauge': getGaugeConfig
 }
 
 export default OptionConfigMap

@@ -32,6 +32,7 @@ import CounterOption from './counter-option'
 import TitleTextOption from './title-text-option'
 import ProgressBarOption from './progress-bar-option'
 import PictureOption from './picture-option'
+import GaugeOption from './gauge-option'
 
 export {
   PlotBubbleOption,
@@ -75,5 +76,6 @@ export {
   CounterOption,
   TitleTextOption,
   ProgressBarOption,
-  PictureOption
+  PictureOption,
+  GaugeOption
 }

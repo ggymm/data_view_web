@@ -88,7 +88,8 @@ import {
   CounterOption,
   TitleTextOption,
   ProgressBarOption,
-  PictureOption
+  PictureOption,
+  GaugeOption
 } from '../options'
 
 import OptionComponentMap from '../../config/option-component-map'
@@ -149,6 +150,7 @@ export default {
     TitleTextOption,
     ProgressBarOption,
     PictureOption,
+    GaugeOption,
 
     codemirror
   },

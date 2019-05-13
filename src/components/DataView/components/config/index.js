@@ -40,6 +40,7 @@ import { getCounterConfig } from './counter-config'
 import { getTitleTextConfig } from './title-text-config'
 import { getProgressBarConfig } from './progress-bar-config'
 import { getPictureConfig } from './picture-config'
+import { getGaugeConfig } from './gauge-config'
 
 export {
   getPlotBubbleConfig,
@@ -83,5 +84,6 @@ export {
   getCounterConfig,
   getTitleTextConfig,
   getProgressBarConfig,
-  getPictureConfig
+  getPictureConfig,
+  getGaugeConfig
 }
