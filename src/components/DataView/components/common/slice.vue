@@ -47,7 +47,8 @@ import {
   Counter,
   TitleText,
   ProgressBar,
-  PictureV
+  PictureV,
+  Gauge
 } from '../charts'
 import ChartComponentMap from '../../config/chart-component-map'
 import { getChartData } from '../../../../api/screen'
@@ -109,7 +110,8 @@ export default {
     Counter,
     TitleText,
     ProgressBar,
-    PictureV
+    PictureV,
+    Gauge
   },
   directives: { clickOutside },
   props: {

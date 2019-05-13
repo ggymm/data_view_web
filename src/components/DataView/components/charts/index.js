@@ -26,6 +26,7 @@ import Counter from './counter'
 import TitleText from './title-text'
 import ProgressBar from './progress-bar'
 import PictureV from './picture'
+import Gauge from './gauge'
 
 export {
   PlotBubble,
@@ -55,5 +56,6 @@ export {
   Counter,
   TitleText,
   ProgressBar,
-  PictureV
+  PictureV,
+  Gauge
 }

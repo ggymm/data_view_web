@@ -40,7 +40,8 @@ const ChartComponentMap = {
   'counter': 'Counter',
   'titleText': 'TitleText',
   'progressBar': 'ProgressBar',
-  'picture': 'PictureV'
+  'picture': 'PictureV',
+  'gauge': 'Gauge'
 }
 
 export default ChartComponentMap

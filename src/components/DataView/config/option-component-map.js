@@ -40,7 +40,8 @@ const OptionComponentMap = {
   'counter': 'CounterOption',
   'titleText': 'TitleTextOption',
   'progressBar': 'ProgressBarOption',
-  'picture': 'pictureOption'
+  'picture': 'pictureOption',
+  'gauge': 'gaugeOption'
 }
 
 export default OptionComponentMap
