@@ -264,8 +264,7 @@ export default {
           return false
         }
         if (objectKeys[i] === 'sql') {
-          const reg = /^select\b[^\b]+\bfrom\b[^\b]+\b$/
-          if (!reg.test(object[objectKeys[i]])) {
+          if (object[objectKeys[i]].length <= 0) {
             console.log('sql校验失败!')
             return false
           }
