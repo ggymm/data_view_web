@@ -27,7 +27,7 @@ const RotationListConfig = function() {
         fontSize: 12
       },
       speed: 3,
-      rowNum: 4,
+      rowNum: 4
     }
   }
 }
