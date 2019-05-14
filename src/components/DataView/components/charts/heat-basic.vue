@@ -13,6 +13,7 @@
 </template>
 <script>
 import { getHeatBasicConfig } from '../config/heat-basic-config'
+import BMap from 'echarts/extension/bmap/bmap'
 export default {
   name: 'HeatBasic',
   props: {
@@ -50,6 +51,9 @@ export default {
     this.$emit('init', {
       chart: chart
     })
+    debugger
+    var bmap = chart.getModel().getComponent('bmap').getBMap()
+    bmap.addControl(new BMap.MapTypeControl())
   },
   methods: {
     handleChartClick(param) {
