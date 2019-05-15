@@ -125,7 +125,11 @@ export default {
     },
     setData() {
       this.columnList = this.apiData.column
-      this.columnWidthList = this.apiData.columnWidth
+      var columnWidthList = []
+      for (var i = 0; i < this.apiData.column.length; i++) {
+        columnWidthList.push('100px')
+      }
+      this.columnWidthList = columnWidthList
       this.dataList = this.apiData.value
     }
   }
