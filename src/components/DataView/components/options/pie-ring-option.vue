@@ -88,11 +88,23 @@
                   <el-color-picker v-model="item.option.title.textStyle.color" />
                 </el-col>
               </el-form-item>
-              <el-form-item v-if="item.option.title.show" label="标题位置">
+              <el-form-item v-if="item.option.title.show" label="标题位置（左）">
                 <el-col :span="20">
                   <el-select v-model="item.option.title.left">
                     <el-option
                       v-for="position in positionList"
+                      :key="position.value"
+                      :label="position.label"
+                      :value="position.value"
+                    />
+                  </el-select>
+                </el-col>
+              </el-form-item>
+              <el-form-item v-if="item.option.title.show" label="标题位置（上）">
+                <el-col :span="20">
+                  <el-select v-model="item.option.title.top">
+                    <el-option
+                      v-for="position in positionTopList"
                       :key="position.value"
                       :label="position.label"
                       :value="position.value"
@@ -243,6 +255,11 @@ export default {
         { label: '居左', value: 'left' },
         { label: '居中', value: 'center' },
         { label: '居右', value: 'right' }
+      ],
+      positionTopList: [
+        { label: '居上', value: 'top' },
+        { label: '居中', value: 'center' },
+        { label: '居下', value: 'bottom' }
       ],
       orientList: [
         { label: '纵向', value: 'vertical' },
