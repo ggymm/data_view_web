@@ -22,11 +22,12 @@ const PieRingConfig = function() {
       title: {
         text: '环形饼图',
         left: 'center',
+        top: 'top',
         textStyle: { color: '#fff' }
       },
       tooltip: {
         trigger: 'item',
-        formatter: '{b}:{c}({d}%)'
+        formatter: ''
       },
       color: ['#5098c7', '#f79665', '#83c094', '#fdd869'],
       legend: { show: true, orient: 'vertical', top: '0', left: '0', data: [], textStyle: { color: '#fff' }},
@@ -44,7 +45,7 @@ const PieRingConfig = function() {
               fontSize: '15',
               fontWeight: 'bold'
             },
-            formatter: '{d}%\n\n{b}'
+            formatter: ''
           }
         },
         labelLine: {

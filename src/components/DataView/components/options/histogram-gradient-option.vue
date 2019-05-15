@@ -34,6 +34,11 @@
           </el-collapse-item>
           <el-collapse-item title="图表样式">
             <el-form ref="form" :model="item" label-width="35%" size="mini">
+              <el-form-item label="图表Grid(上)">
+                <el-col :span="20">
+                  <el-input v-model="item.option.grid.top" />
+                </el-col>
+              </el-form-item>
               <el-form-item label="图表Grid(左)">
                 <el-col :span="20">
                   <el-input v-model="item.option.grid.left" />
