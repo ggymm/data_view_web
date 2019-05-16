@@ -27,7 +27,7 @@ export default {
       }
     },
     apiData: {
-      type: Object,
+      type: Array,
       default() {
         return {}
       }
@@ -56,11 +56,13 @@ export default {
     setData() {
       this.option.dataset.source = this.apiData
       var size = this.apiData[0].length
-      this.option.series = {}
-      for (var i = 0; i < size - 1; i++) {
-        this.option.series.push({
-          'type': 'bar'
-        })
+      if (this.option.series.length === 0) {
+        this.option.series = []
+        for (var i = 0; i < size - 1; i++) {
+          this.option.series.push({
+            'type': 'bar'
+          })
+        }
       }
     }
   }
