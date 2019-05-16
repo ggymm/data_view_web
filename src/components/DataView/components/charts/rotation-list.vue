@@ -1,11 +1,12 @@
 <template>
   <div v-loading="loading" class="chart">
     <div
+      v-if="option.column.show"
       :style="{
         color: option.column.fontColor,
         height: option.column.height + 'px',
         lineHeight: option.column.height + 'px',
-        fontSize: option.column.fontSize + 'px'
+        fontSize: option.column.fontSize + 'px',
       }"
       class="rotation-column"
     >
@@ -107,11 +108,11 @@ export default {
   },
   methods: {
     setTimer: function() {
-      var speed = this.speed
+      const speed = this.speed
       this.timer = setInterval(() => {
-        var $parent = $('#' + this.i).find('.rotation-list')
-        var $first = $parent.find('li:first')
-        var height = $first.height()
+        const $parent = $('#' + this.i).find('.rotation-list')
+        const $first = $parent.find('li:first')
+        const height = $first.height()
         $first.animate({
           marginTop: -height + 'px'
         }, 500, function() {
@@ -125,11 +126,13 @@ export default {
     },
     setData() {
       this.option.columnList = this.apiData.column
-      var columnWidthList = []
-      for (var i = 0; i < this.apiData.column.length; i++) {
-        columnWidthList.push('100px')
+      if (this.option.columnWidthList.length === 0) {
+        var columnWidthList = []
+        for (var i = 0; i < this.apiData.column.length; i++) {
+          columnWidthList.push('100px')
+        }
+        this.option.columnWidthList = columnWidthList
       }
-      this.option.columnWidthList = columnWidthList
       this.dataList = this.apiData.value
     }
   }

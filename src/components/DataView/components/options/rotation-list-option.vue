@@ -34,6 +34,18 @@
           </el-collapse-item>
           <el-collapse-item title="表头配置">
             <el-form ref="form" :model="item" label-width="35%" size="mini">
+              <el-form-item label="显示表头">
+                <el-col :span="20">
+                  <el-select v-model="item.option.column.show">
+                    <el-option
+                      v-for="isShow in isShowList"
+                      :key="isShow.value"
+                      :label="isShow.label"
+                      :value="isShow.value"
+                    />
+                  </el-select>
+                </el-col>
+              </el-form-item>
               <el-form-item label="高度">
                 <el-col :span="20">
                   <el-input-number v-model="item.option.column.height" :min="0" />

@@ -17,6 +17,7 @@ const RotationListConfig = function() {
     interval: 8000,
     option: {
       column: {
+        show: true,
         height: 35,
         fontColor: '#ffffff',
         fontSize: 13
