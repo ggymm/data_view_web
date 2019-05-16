@@ -10,9 +10,9 @@
       class="rotation-column"
     >
       <span
-        v-for="(column, index) in columnList"
+        v-for="(column, index) in option.columnList"
         :key="index"
-        :style="{width: columnWidthList[index]}"
+        :style="{width: option.columnWidthList[index]}"
       >{{ column }}</span>
     </div>
     <div
@@ -33,7 +33,7 @@
           <span
             v-for="(dataItem, childIndex) in data"
             :key="childIndex"
-            :style="{width: columnWidthList[childIndex]}"
+            :style="{width: option.columnWidthList[childIndex]}"
           >{{ dataItem }}</span>
         </li>
       </ul>
@@ -124,12 +124,12 @@ export default {
       this.setTimer()
     },
     setData() {
-      this.columnList = this.apiData.column
+      this.option.columnList = this.apiData.column
       var columnWidthList = []
       for (var i = 0; i < this.apiData.column.length; i++) {
         columnWidthList.push('100px')
       }
-      this.columnWidthList = columnWidthList
+      this.option.columnWidthList = columnWidthList
       this.dataList = this.apiData.value
     }
   }

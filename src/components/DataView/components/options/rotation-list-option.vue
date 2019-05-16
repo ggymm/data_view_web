@@ -51,8 +51,26 @@
               </el-form-item>
             </el-form>
           </el-collapse-item>
+          <el-collapse-item title="表头列表">
+            <el-form ref="form" :model="item" label-width="35%" size="mini">
+              <el-form-item v-for="(_, index) in item.option.columnList" :key="index" :label="'表头(' + (index + 1) + ')'">
+                <el-col :span="20">
+                  <el-input v-model="item.option.columnList[index]" />
+                </el-col>
+              </el-form-item>
+            </el-form>
+          </el-collapse-item>
+          <el-collapse-item title="表头宽度列表">
+            <el-form ref="form" :model="item" label-width="35%" size="mini">
+              <el-form-item v-for="(_, index) in item.option.columnWidthList" :key="index" :label="'表头宽度(' + (index + 1) + ')'">
+                <el-col :span="20">
+                  <el-input v-model="item.option.columnWidthList[index]" />
+                </el-col>
+              </el-form-item>
+            </el-form>
+          </el-collapse-item>
           <el-collapse-item title="表格配置">
-            <el-form ref="form" :model="item" label-width="40%" size="mini">
+            <el-form ref="form" :model="item" label-width="35%" size="mini">
               <el-form-item label="行高度">
                 <el-col :span="20">
                   <el-input-number v-model="item.option.data.height" :min="0" />

@@ -21,6 +21,8 @@ const RotationListConfig = function() {
         fontColor: '#ffffff',
         fontSize: 13
       },
+      columnList: [],
+      columnWidthList: [],
       data: {
         height: 30,
         fontColor: '#e2e2e2',
