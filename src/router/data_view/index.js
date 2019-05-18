@@ -69,6 +69,11 @@ export const dataViewRouterMap = [
         path: 'edit/:instanceId/:isCopy',
         name: 'DataViewEditInstance',
         component: () => import('@/views/data_view/screen/edit')
+      },
+      {
+        path: 'preview/:instanceId',
+        name: 'DataViewPreviewInstance',
+        component: () => import('@/views/data_view/screen/preview')
       }
     ]
   }

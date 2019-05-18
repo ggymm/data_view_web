@@ -191,7 +191,7 @@
           @click="chooseItem = {}"
         >画板设置
         </el-button>
-        <el-button size="mini" type="success">预览</el-button>
+        <el-button size="mini" type="success" @click="previewScreen">预览</el-button>
         <el-button size="mini" type="success" @click="handleScreenCapture">打印缩略图</el-button>
       </div>
     </div>
@@ -604,6 +604,9 @@ export default {
         params).then(function(canvas) {
         console.log(canvas.toDataURL('image/png'))
       })
+    },
+    previewScreen() {
+      window.open('#/screen/preview/' + this.instanceId)
     }
   }
 }
