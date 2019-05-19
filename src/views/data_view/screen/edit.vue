@@ -192,7 +192,7 @@
         >画板设置
         </el-button>
         <el-button size="mini" type="success" @click="previewScreen">预览</el-button>
-        <el-button size="mini" type="success" @click="handleScreenCapture">打印缩略图</el-button>
+        <el-button size="mini" type="success" @click="debugMethod">调试接口</el-button>
       </div>
     </div>
     <div class="data-view-main">
@@ -223,6 +223,7 @@
               <Slice
                 :id="item.i"
                 :item="item"
+                :theme="panelConfig.instanceTheme"
                 @transferHandleItemChoose="handleItemChoose(item)"
               />
             </item>
@@ -256,6 +257,7 @@
               <el-col :span="12">
                 <!--suppress RequiredAttributes -->
                 <el-select v-model="panelConfig.backgroundImg" clearable>
+                  <!--suppress JSUnresolvedVariable -->
                   <el-option
                     v-for="backgroundImg in backgroundImgList"
                     :key="backgroundImg.ImageId"
@@ -594,16 +596,17 @@ export default {
         type: 'error'
       })
     },
-    handleScreenCapture() {
-      const params = {
-        logging: false, // 日志开关，发布的时候记得改成false
-        width: this.panelConfig.panelWidth, // dom 原始宽度
-        height: this.panelConfig.panelHeight // dom 原始高度
-      }
-      window.html2canvas(document.getElementById('data-view-container-layout'),
-        params).then(function(canvas) {
-        console.log(canvas.toDataURL('image/png'))
-      })
+    debugMethod() {
+      // const params = {
+      //   logging: false, // 日志开关，发布的时候记得改成false
+      //   width: this.panelConfig.panelWidth, // dom 原始宽度
+      //   height: this.panelConfig.panelHeight // dom 原始高度
+      // }
+      // window.html2canvas(document.getElementById('data-view-container-layout'),
+      //   params).then(function(canvas) {
+      //   console.log(canvas.toDataURL('image/png'))
+      // })
+      console.log(this.$refs.chart0.changeTheme)
     },
     previewScreen() {
       window.open('#/screen/preview/' + this.instanceId)

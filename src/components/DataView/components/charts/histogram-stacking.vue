@@ -31,6 +31,12 @@ export default {
       default() {
         return {}
       }
+    },
+    theme: {
+      type: Object,
+      default() {
+        return {}
+      }
     }
   },
   data() {
@@ -60,7 +66,10 @@ export default {
         this.option.series = []
         for (var i = 0; i < size - 1; i++) {
           this.option.series.push({
-            'type': 'bar'
+            'type': 'bar',
+            'itemStyle': {
+              'color': { 'x': 0, 'y': 0, 'x2': 0, 'y2': 1, 'type': 'linear', 'global': false, 'colorStops': [{ 'offset': 0, 'color': '#E38A99' }, { 'offset': 1, 'color': '#9E5DB7' }] }
+            }
           })
         }
       }

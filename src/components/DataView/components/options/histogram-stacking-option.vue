@@ -282,22 +282,6 @@
               </el-form-item>
             </el-form>
           </el-collapse-item>
-          <el-collapse-item v-if="item.option.series.length !== 0" title="图表曲线样式">
-            <el-form ref="form" :model="item" label-width="35%" size="mini">
-              <el-form-item v-for="(series, index) in item.option.series" :key="series.name" :label="'是否平滑(' + (index + 1) + ')'">
-                <el-col :span="20">
-                  <el-select v-model="series.smooth">
-                    <el-option
-                      v-for="smooth in smoothList"
-                      :key="smooth.value"
-                      :label="smooth.label"
-                      :value="smooth.value"
-                    />
-                  </el-select>
-                </el-col>
-              </el-form-item>
-            </el-form>
-          </el-collapse-item>
           <el-button size="mini" type="danger" @click="handleDelete">删除图表</el-button>
         </el-collapse>
       </el-tab-pane>

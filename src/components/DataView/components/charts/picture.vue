@@ -24,6 +24,12 @@ export default {
     i: {
       type: String,
       required: true
+    },
+    theme: {
+      type: Object,
+      default() {
+        return {}
+      }
     }
   },
   data() {

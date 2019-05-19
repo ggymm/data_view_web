@@ -43,6 +43,12 @@ export default {
       default() {
         return {}
       }
+    },
+    theme: {
+      type: Object,
+      default() {
+        return {}
+      }
     }
   },
   data() {

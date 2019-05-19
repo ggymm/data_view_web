@@ -13,6 +13,7 @@
       :api-data="chartData"
       :option="item.option"
       :i="item.i"
+      :theme="ThemeConfigMap[theme]"
       @init="chartInit"
     />
   </div>
@@ -50,6 +51,7 @@ import {
   PictureV,
   Gauge
 } from '../charts'
+import ThemeConfigMap from '../../config/theme-config-map'
 import ChartComponentMap from '../../config/chart-component-map'
 import { getChartData } from '../../../../api/screen'
 
@@ -120,6 +122,12 @@ export default {
       default() {
         return {}
       }
+    },
+    theme: {
+      type: String,
+      default() {
+        return ''
+      }
     }
   },
   data() {
@@ -130,7 +138,8 @@ export default {
       lastChartData: {},
       timer: null,
       changeTimer: null,
-      ChartComponentMap
+      ChartComponentMap,
+      ThemeConfigMap
     }
   },
   watch: {
