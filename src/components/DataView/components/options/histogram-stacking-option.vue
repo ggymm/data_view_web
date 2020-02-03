@@ -380,6 +380,10 @@ export default {
       isShowList: [
         { label: '显示', value: true },
         { label: '隐藏', value: false }
+      ],
+      orientList: [
+        { label: '纵向', value: 'vertical' },
+        { label: '横向', value: 'horizontal' }
       ]
     }
   },

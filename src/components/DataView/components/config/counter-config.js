@@ -11,8 +11,8 @@ const CounterConfig = function() {
       dataSourceType: '',
       database: '',
       fileName: '',
-      sql: '',
-      data: ''
+      sql: 'select data from counter',
+      data: 'data'
     },
     data: [],
     interval: 8000,

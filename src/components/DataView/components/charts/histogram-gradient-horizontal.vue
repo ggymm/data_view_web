@@ -60,8 +60,8 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      this.option.yAxis.data = this.apiData.dataAxis
-      this.option.series.data = this.apiData.data
+      this.option.yAxis.data = this.apiData.x
+      this.option.series.data = this.apiData.y
     }
   }
 }

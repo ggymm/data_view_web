@@ -11,10 +11,10 @@ const MapChinaConfig = function() {
       dataSourceType: '',
       database: '',
       fileName: '',
-      sql: 'select name,value from map_china',
+      sql: 'select * from map_china',
       name: 'name',
       value: 'value',
-      legend: '无'
+      legend: 'legend'
     },
     data: [],
     interval: 8000,
@@ -23,6 +23,13 @@ const MapChinaConfig = function() {
         text: '中国地图',
         left: 'center',
         textStyle: { color: '#fff' }
+      },
+      grid: {
+        top: '60',
+        left: '1%',
+        right: '4%',
+        bottom: '10%',
+        containLabel: true
       },
       tooltip: {
         trigger: 'item'

@@ -89,7 +89,10 @@ const HistogramComplexConfig = function() {
           saveAsImage: {}
         }
       },
-      series: [{ name: '', type: 'bar', xAxisIndex: 1, yAxisIndex: 1, data: [] }, { name: '', type: 'line', data: [] }],
+      series: [
+        { name: '', type: 'bar', xAxisIndex: 1, yAxisIndex: 1, data: [] },
+        { name: '', type: 'line', data: [] }
+      ],
       backgroundColor: 'rgba(255,255,255,0)'
     }
   }

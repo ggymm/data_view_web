@@ -60,13 +60,13 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      var dataShadow = []
-      for (var i = 0; i < this.apiData.data.length; i++) {
-        dataShadow.push(this.apiData.yMax)
+      const dataShadow = []
+      for (let i = 0; i < this.apiData.x.length; i++) {
+        dataShadow.push(this.apiData.max)
       }
-      this.option.xAxis.data = this.apiData.dataAxis
+      this.option.xAxis.data = this.apiData.x
       this.option.series[0].data = dataShadow
-      this.option.series[1].data = this.apiData.data
+      this.option.series[1].data = this.apiData.y
     }
   }
 }

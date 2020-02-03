@@ -13,6 +13,7 @@
 </template>
 <script>
 import { getPlotBubbleConfig } from '../config/plot-bubble-config'
+
 export default {
   name: 'PlotBubble',
   props: {
@@ -61,7 +62,7 @@ export default {
     },
     setData() {
       this.option.legend.data = this.apiData.legend
-      var itemStyle = {
+      const itemStyle = {
         normal: {
           opacity: 0.8,
           shadowBlur: 10,
@@ -70,17 +71,21 @@ export default {
           shadowColor: 'rgba(0, 0, 0, 0.5)'
         }
       }
-      var _data = this.apiData.y
+      const _data = this.apiData.data
       this.option.series = []
-      for (var i = 0; i < _data.length; i++) {
-        var series = {
+      for (let i = 0; i < _data.length; i++) {
+        const series = {
           name: _data[i].name,
           type: 'scatter',
+          symbolSize: function(data) {
+            return data[2]
+          },
           itemStyle: itemStyle,
           data: _data[i].value
         }
         this.option.series.push(series)
       }
+      console.log(this.option.series)
     }
   }
 }

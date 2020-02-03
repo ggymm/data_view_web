@@ -12,8 +12,8 @@ const HistogramGradientHorizontalConfig = function() {
       database: '',
       fileName: '',
       sql: 'select * from histogram_gradient',
-      value: 'value',
-      name: 'x'
+      y: 'y',
+      x: 'x'
     },
     data: {},
     interval: 8000,

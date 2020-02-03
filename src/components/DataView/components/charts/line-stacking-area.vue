@@ -62,17 +62,15 @@ export default {
     setData() {
       this.option.legend.data = this.apiData.legend
       this.option.xAxis.data = this.apiData.x
-      var _data = this.apiData.y
+      const _data = this.apiData.y
       this.option.series = []
-      for (var i = 0; i < _data.length; i++) {
-        var series = {
+      for (let i = 0; i < _data.length; i++) {
+        this.option.series.push({
           name: _data[i].name,
           type: 'line',
           data: _data[i].value,
-          stack: '总量',
           areaStyle: {}
-        }
-        this.option.series.push(series)
+        })
       }
     }
   }

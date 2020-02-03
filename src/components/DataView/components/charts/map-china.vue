@@ -61,20 +61,26 @@ export default {
     handleChartClick(param) {
     },
     setData() {
-      const item = {
-        type: 'map',
-        mapType: 'china',
-        label: {
-          normal: {
-            show: true
+      this.option.legend.data = this.apiData.legend
+      const _data = this.apiData.data
+      this.option.series = []
+      for (let i = 0; i < _data.length; i++) {
+        const item = {
+          name: _data[i].name,
+          type: 'map',
+          mapType: 'china',
+          label: {
+            normal: {
+              show: true
+            },
+            emphasis: {
+              show: true
+            }
           },
-          emphasis: {
-            show: true
-          }
-        },
-        data: this.apiData
+          data: _data[i].value
+        }
+        this.option.series.push(item)
       }
-      this.option.series.push(item)
     }
   }
 }

@@ -32,8 +32,105 @@
               </el-form-item>
             </el-form>
           </el-collapse-item>
-          <el-collapse-item title="图表配置">
-            <el-form ref="form" :model="item" label-width="35%" size="mini" />
+          <el-collapse-item title="图表样式">
+            <el-form ref="form" :model="item" label-width="35%" size="mini">
+              <el-form-item label="图表Grid(左)">
+                <el-col :span="20">
+                  <el-input v-model="item.option.grid.left" />
+                </el-col>
+              </el-form-item>
+              <el-form-item label="图表Grid(右)">
+                <el-col :span="20">
+                  <el-input v-model="item.option.grid.right" />
+                </el-col>
+              </el-form-item>
+              <el-form-item label="图表Grid(底)">
+                <el-col :span="20">
+                  <el-input v-model="item.option.grid.bottom" />
+                </el-col>
+              </el-form-item>
+            </el-form>
+          </el-collapse-item>
+          <el-collapse-item title="图表标题">
+            <el-form ref="form" :model="item" label-width="35%" size="mini">
+              <el-form-item label="显示标题">
+                <el-col :span="20">
+                  <el-select v-model="item.option.title.show">
+                    <el-option
+                      v-for="isShow in isShowList"
+                      :key="isShow.value"
+                      :label="isShow.label"
+                      :value="isShow.value"
+                    />
+                  </el-select>
+                </el-col>
+              </el-form-item>
+              <el-form-item v-if="item.option.title.show" label="标题">
+                <el-col :span="20">
+                  <el-input v-model="item.option.title.text" />
+                </el-col>
+              </el-form-item>
+              <el-form-item v-if="item.option.title.show" label="标题颜色">
+                <el-col :span="20">
+                  <el-color-picker v-model="item.option.title.textStyle.color" />
+                </el-col>
+              </el-form-item>
+              <el-form-item v-if="item.option.title.show" label="标题位置">
+                <el-col :span="20">
+                  <el-select v-model="item.option.title.left">
+                    <el-option
+                      v-for="position in positionList"
+                      :key="position.value"
+                      :label="position.label"
+                      :value="position.value"
+                    />
+                  </el-select>
+                </el-col>
+              </el-form-item>
+            </el-form>
+          </el-collapse-item>
+          <el-collapse-item title="图例样式">
+            <el-form ref="form" :model="item" label-width="35%" size="mini">
+              <el-form-item label="显示图例">
+                <el-col :span="20">
+                  <el-select v-model="item.option.legend.show">
+                    <el-option
+                      v-for="isShow in isShowList"
+                      :key="isShow.value"
+                      :label="isShow.label"
+                      :value="isShow.value"
+                    />
+                  </el-select>
+                </el-col>
+              </el-form-item>
+              <el-form-item v-if="item.option.legend.show" label="图例布局朝向">
+                <el-col :span="20">
+                  <el-select v-model="item.option.legend.orient">
+                    <el-option
+                      v-for="orient in orientList"
+                      :key="orient.value"
+                      :label="orient.label"
+                      :value="orient.value"
+                    />
+                  </el-select>
+                </el-col>
+              </el-form-item>
+              <el-form-item v-if="item.option.legend.show" label="图例位置(左)">
+                <el-col :span="20">
+                  <el-input-number v-model="item.option.legend.left" :min="0" />
+                </el-col>
+              </el-form-item>
+              <el-form-item v-if="item.option.legend.show" label="图例位置(上)">
+                <el-col :span="20">
+                  <el-input-number v-model="item.option.legend.top" :min="0" />
+                </el-col>
+              </el-form-item>
+              <el-form-item v-if="item.option.legend.show" label="文字颜色">
+                <el-col :span="20">
+                  <el-color-picker v-model="item.option.legend.textStyle.color" />
+                </el-col>
+              </el-form-item>
+            </el-form>
           </el-collapse-item>
           <el-button size="mini" type="danger" @click="handleDelete">删除图表</el-button>
         </el-collapse>
@@ -88,7 +185,7 @@
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="legend">
             <el-col :span="20">
-              <el-input v-model="item.chartData.legend" placeholder="没有Legend可以填“无”" />
+              <el-input v-model="item.chartData.legend" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">
@@ -133,6 +230,15 @@ export default {
       dataSourceTypeList: [
         { label: '数据库数据源', value: 'DataBase' },
         { label: 'CSV文件数据源', value: 'CSV' }
+      ],
+      positionList: [
+        { label: '居左', value: 'left' },
+        { label: '居中', value: 'center' },
+        { label: '居右', value: 'right' }
+      ],
+      orientList: [
+        { label: '纵向', value: 'vertical' },
+        { label: '横向', value: 'horizontal' }
       ],
       fileNameList: []
     }

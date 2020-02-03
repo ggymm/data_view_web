@@ -57,7 +57,6 @@ export default {
     this.$emit('init', {
       chart: chart
     })
-    debugger
     var bmap = chart.getModel().getComponent('bmap').getBMap()
     bmap.addControl(new BMap.MapTypeControl())
   },

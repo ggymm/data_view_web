@@ -61,17 +61,14 @@ export default {
     },
     setData() {
       this.option.dataset.source = this.apiData
-      var size = this.apiData[0].length
-      if (this.option.series.length === 0) {
-        this.option.series = []
-        for (var i = 0; i < size - 1; i++) {
-          this.option.series.push({
-            'type': 'bar',
-            'itemStyle': {
-              'color': { 'x': 0, 'y': 0, 'x2': 0, 'y2': 1, 'type': 'linear', 'global': false, 'colorStops': [{ 'offset': 0, 'color': '#E38A99' }, { 'offset': 1, 'color': '#9E5DB7' }] }
-            }
-          })
-        }
+      this.option.series = []
+      for (let i = 0; i < this.apiData[0].length - 1; i++) {
+        this.option.series.push({
+          'type': 'bar',
+          'itemStyle': {
+            'color': { 'x': 0, 'y': 0, 'x2': 0, 'y2': 1, 'type': 'linear', 'global': false, 'colorStops': [{ 'offset': 0, 'color': '#E38A99' }, { 'offset': 1, 'color': '#9E5DB7' }] }
+          }
+        })
       }
     }
   }

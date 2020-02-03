@@ -550,24 +550,39 @@ export default {
       try {
         getScreenInstanceParams(instanceId).then(response => {
           const items = JSON.parse(JSON.stringify(response.data.ChartItems))
-          items.map((item) => {
-            item.data = JSON.parse(item.data)
-            item.chartData = JSON.parse(item.chartData)
-            item.option = JSON.parse(item.option)
-            return item
-          })
-          const panelConfig = {
-            title: response.data.InstanceTitle,
-            panelWidth: response.data.InstanceWidth,
-            panelHeight: response.data.InstanceHeight,
-            backgroundColor: response.data.InstanceBackgroundColor,
-            backgroundImg: response.data.InstanceBackgroundImg,
-            instanceVersion: response.data.InstanceVersion
+          if (items !== null && items !== undefined && items.length > 0) {
+            items.map((item) => {
+              item.data = JSON.parse(item.data)
+              item.chartData = JSON.parse(item.chartData)
+              item.option = JSON.parse(item.option)
+              return item
+            })
+            const panelConfig = {
+              title: response.data.InstanceTitle,
+              panelWidth: response.data.InstanceWidth,
+              panelHeight: response.data.InstanceHeight,
+              backgroundColor: response.data.InstanceBackgroundColor,
+              backgroundImg: response.data.InstanceBackgroundImg,
+              instanceVersion: response.data.InstanceVersion
+            }
+            // noinspection JSUnresolvedVariable
+            this.startIndex = response.data.StartIndex
+            this.panelConfig = JSON.parse(JSON.stringify(panelConfig))
+            this.slices = JSON.parse(JSON.stringify(items))
+          } else {
+            const panelConfig = {
+              title: response.data.InstanceTitle,
+              panelWidth: response.data.InstanceWidth,
+              panelHeight: response.data.InstanceHeight,
+              backgroundColor: response.data.InstanceBackgroundColor,
+              backgroundImg: response.data.InstanceBackgroundImg,
+              instanceVersion: response.data.InstanceVersion
+            }
+            // noinspection JSUnresolvedVariable
+            this.startIndex = response.data.StartIndex
+            this.panelConfig = JSON.parse(JSON.stringify(panelConfig))
+            this.slices = []
           }
-          // noinspection JSUnresolvedVariable
-          this.startIndex = response.data.StartIndex
-          this.panelConfig = JSON.parse(JSON.stringify(panelConfig))
-          this.slices = JSON.parse(JSON.stringify(items))
         })
       } catch (e) {
         console.log(e)
@@ -597,19 +612,17 @@ export default {
       })
     },
     debugMethod() {
-      // const params = {
-      //   logging: false, // 日志开关，发布的时候记得改成false
-      //   width: this.panelConfig.panelWidth, // dom 原始宽度
-      //   height: this.panelConfig.panelHeight // dom 原始高度
-      // }
-      // window.html2canvas(document.getElementById('data-view-container-layout'),
-      //   params).then(function(canvas) {
-      //   console.log(canvas.toDataURL('image/png'))
-      // })
-      console.log(this.$refs.chart0.changeTheme)
+      console.log(this.slices)
     },
     previewScreen() {
-      window.open('#/screen/preview/' + this.instanceId)
+      if (this.instanceId) {
+        window.open('#/screen/preview/' + this.instanceId)
+      } else {
+        this.$message({
+          message: '请先保存图表后预览',
+          type: 'error'
+        })
+      }
     }
   }
 }

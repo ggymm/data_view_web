@@ -61,8 +61,8 @@ export default {
     },
     setData() {
       this.option.legend.data = this.apiData.legend
-      var _data = this.apiData.value
-      for (var i = 0; i < _data.length; i++) {
+      const _data = this.apiData.value
+      for (let i = 0; i < _data.length; i++) {
         this.option.xAxis[i].data = _data[i].x
         this.option.series[i].data = _data[i].y
       }

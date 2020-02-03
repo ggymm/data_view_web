@@ -260,14 +260,14 @@
               </el-select>
             </el-col>
           </el-form-item>
-          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="name">
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="x">
             <el-col :span="20">
-              <el-input v-model="item.chartData.name" />
+              <el-input v-model="item.chartData.x" />
             </el-col>
           </el-form-item>
-          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="value">
+          <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="y">
             <el-col :span="20">
-              <el-input v-model="item.chartData.value" />
+              <el-input v-model="item.chartData.y" />
             </el-col>
           </el-form-item>
           <el-form-item v-if="item.chartData.dataSourceType === 'DataBase'" label="SQL">
