@@ -53,6 +53,7 @@ service.interceptors.response.use(
     }
   },
   error => {
+    console.error(error)
     Message({
       message: error.response.data.msg,
       type: 'error',

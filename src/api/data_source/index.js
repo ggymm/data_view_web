@@ -34,7 +34,7 @@ export function saveDataSource(params) {
 
 export function updateDataSource(params) {
   return request({
-    url: dataViewBaseUrl + 'data_source/' + params.DataSourceId,
+    url: dataViewBaseUrl + 'data_source',
     method: 'put',
     data: params
   })

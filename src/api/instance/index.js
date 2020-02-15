@@ -33,7 +33,7 @@ export function saveScreenInstanceParams(params) {
 
 export function updateScreenInstanceParams(params) {
   return request({
-    url: dataViewBaseUrl + 'screen_instance/' + params.InstanceId,
+    url: dataViewBaseUrl + 'screen_instance',
     method: 'put',
     data: params
   })
